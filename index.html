@@ -62,24 +62,24 @@
       text-decoration: underline;
     }
 
-    /* About Me 메뉴 */
-    .about-link {
+    /* 메뉴 공통 스타일 */
+    .menu-link {
       margin-top: 20px;
       padding-top: 15px;
       border-top: 1px solid rgba(255,255,255,0.4);
     }
-    .about-link a {
+    .menu-link a {
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 22px;   /* 👉 글자 크기 키움 */
+      font-size: 24px;   /* 👉 두 메뉴 동일하게 크게 */
       display: inline-block;
       margin-top: 10px;
-      transition: all 0.3s ease; /* 👉 부드러운 효과 */
+      transition: all 0.3s ease; /* 👉 hover 효과 */
     }
-    .about-link a:hover {
-      color: #ffeb3b;            /* 👉 마우스 올리면 글자 색상 변경 */
-      transform: scale(1.1);     /* 👉 살짝 확대 */
+    .menu-link a:hover {
+      color: #ffeb3b;        /* 👉 마우스 올리면 색상 변경 */
+      transform: scale(1.1); /* 👉 살짝 확대 */
     }
 
     .right {
@@ -148,9 +148,13 @@
           <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">www.notion.so</a>
         </p>
       </div>
-      <!-- About Me 메뉴 -->
-      <div class="about-link">
+      <!-- 자기소개 메뉴 -->
+      <div class="menu-link">
         <a href="about.html">📖 자기 소개</a>
+      </div>
+      <!-- 기술소개서 메뉴 -->
+      <div class="menu-link">
+        <a href="기술소개서_한유인.pdf" target="_blank">📝 기술소개서 상세보기</a>
       </div>
     </div>
 
