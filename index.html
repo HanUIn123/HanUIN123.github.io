@@ -1,11 +1,127 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>My GitHub Page</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <p>This is my first GitHub Page 🚀</p>
-  </body>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>한유인 - 이력서</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 30px auto;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .left {
+      width: 30%;
+      background: #1f3c88;
+      color: #fff;
+      padding: 20px;
+    }
+    .left img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .left h2 {
+      margin: 0 0 10px 0;
+    }
+    .left p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+    .right {
+      width: 70%;
+      padding: 20px 30px;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section h2 {
+      border-bottom: 2px solid #1f3c88;
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      color: #1f3c88;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .contact a {
+      display: inline-block;
+      margin-right: 10px;
+      color: #1f3c88;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 왼쪽 영역 -->
+    <div class="left">
+      <img src="https://via.placeholder.com/200x250" alt="프로필 사진">
+      <h2>한유인</h2>
+      <p>게임 클라이언트 개발자 지망</p>
+      <div class="contact">
+        <p>📱 010-1234-5678</p>
+        <p>✉️ email@example.com</p>
+        <a href="https://github.com/HanUIn123" target="_blank">GitHub</a>
+        <a href="https://www.youtube.com" target="_blank">YouTube</a>
+      </div>
+    </div>
+
+    <!-- 오른쪽 영역 -->
+    <div class="right">
+      <h1>이력서</h1>
+
+      <div class="section">
+        <h2>자기소개</h2>
+        <p>
+          C++과 Unreal Engine을 활용하여 게임 시스템을 개발하고 있습니다.  
+          알고리즘 문제 풀이, 그래픽스, 네트워크 프로그래밍에도 관심이 있으며,  
+          효율적이고 안정적인 코드를 작성하는 것을 목표로 합니다.
+        </p>
+      </div>
+
+      <div class="section">
+        <h2>학력</h2>
+        <ul>
+          <li>2020.03 ~ 2025.02 : OO대학교 전자공학과 졸업 예정</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>경력 / 활동</h2>
+        <ul>
+          <li>2024.07 ~ 2024.12 : 쥬신게임아카데미 수료 (게임 클라이언트 과정)</li>
+          <li>2023.03 ~ 2024.06 : 개인 프로젝트 다수 (언리얼, C++)</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>프로젝트</h2>
+        <ul>
+          <li><b>Unreal Engine 5 미니 RPG</b> (2024) - 전투 시스템 및 UI 개발</li>
+          <li><b>알고리즘 문제풀이 저장소</b> - C++로 백준/해커랭크 풀이 업로드</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>보유 기술</h2>
+        <p>C++, Unreal Engine, Unity, DirectX, Git, 알고리즘 문제풀이</p>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
