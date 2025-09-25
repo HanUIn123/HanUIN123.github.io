@@ -12,7 +12,7 @@
     }
     .container {
       display: flex;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 30px auto;
       background: #fff;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -64,13 +64,36 @@
     .contact a:hover {
       text-decoration: underline;
     }
+
+    /* 프로젝트 레이아웃 */
+    .projects-wrap {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      width: 50%;
+    }
+    .thumbnails img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .project-text {
+      width: 50%;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <!-- 왼쪽 영역 -->
     <div class="left">
-<img src="Images/profile.jpg" alt="프로필 사진">
+      <img src="Images/profile.jpg" alt="프로필 사진">
       <h2>한유인</h2>
       <p>게임 클라이언트 개발자 지망</p>
       <div class="contact">
@@ -113,33 +136,48 @@
 
       <div class="section">
         <h2>프로젝트</h2>
-        <ul>
-          <li><b>THYMESIA (DirectX11 3D)</b> (팀 프로젝트)  
-            - 티메시아 게임 모작 (맵툴 & 시스템 설계, Shader 연출)  
-            <a href="https://github.com/HanUIn123/Thymesia" target="_blank">GitHub</a> | 
-            <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">YouTube</a>
-          </li>
-          <li><b>ROBOQUEST (DirectX11 3D)</b> (개인 프로젝트)  
-            - FPS 모작 (플레이어 조작, 보스 AI, HLSL 이펙트)  
-            <a href="https://github.com/HanUIn123/RoboQuest" target="_blank">GitHub</a> | 
-            <a href="https://youtu.be/q8If1wbsMpg" target="_blank">YouTube</a>
-          </li>
-          <li><b>COREKEEPER (DirectX9 2.5D)</b> (팀 프로젝트)  
-            - 코어키퍼 모작 (맵툴, 몬스터 배치 시스템)  
-            <a href="https://github.com/HanUIn123/CoreKeeper" target="_blank">GitHub</a> | 
-            <a href="https://youtu.be/p2AZdOhzHo4" target="_blank">YouTube</a>
-          </li>
-          <li><b>SNOW BROTHERS 2</b> (WinAPI 2D, 개인 프로젝트)  
-            - 2D 고전 게임 모작 (충돌 처리 & 몬스터 AI)  
-            <a href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">GitHub</a> | 
-            <a href="https://youtu.be/7BwQi_yRieA" target="_blank">YouTube</a>
-          </li>
-          <li><b>MULTI SHOOTING (Unity_PUN2)</b> (개인 프로젝트)  
-            - 멀티 슈팅 게임 (네트워크 동기화, 채팅, 보스 AI)  
-            <a href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">GitHub</a> | 
-            <a href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">YouTube</a>
-          </li>
-        </ul>
+        <div class="projects-wrap">
+          <!-- 썸네일 -->
+          <div class="thumbnails">
+            <img src="Images/thymesia.jpg" alt="THYMESIA 썸네일">
+            <img src="Images/roboquest.jpg" alt="ROBOQUEST 썸네일">
+            <img src="Images/corekeeper.jpg" alt="COREKEEPER 썸네일">
+            <img src="Images/snowbros.jpg" alt="SNOW BROTHERS 2 썸네일">
+            <img src="Images/multishooting.jpg" alt="MULTI SHOOTING 썸네일">
+            <img src="Images/extra.jpg" alt="추가 썸네일">
+          </div>
+
+          <!-- 설명 -->
+          <div class="project-text">
+            <ul>
+              <li><b>THYMESIA (DirectX11 3D)</b> (팀 프로젝트)<br>
+                - 티메시아 게임 모작 (맵툴 & 시스템 설계, Shader 연출)<br>
+                <a href="https://github.com/HanUIn123/Thymesia" target="_blank">GitHub</a> | 
+                <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">YouTube</a>
+              </li>
+              <li><b>ROBOQUEST (DirectX11 3D)</b> (개인 프로젝트)<br>
+                - FPS 모작 (플레이어 조작, 보스 AI, HLSL 이펙트)<br>
+                <a href="https://github.com/HanUIn123/RoboQuest" target="_blank">GitHub</a> | 
+                <a href="https://youtu.be/q8If1wbsMpg" target="_blank">YouTube</a>
+              </li>
+              <li><b>COREKEEPER (DirectX9 2.5D)</b> (팀 프로젝트)<br>
+                - 코어키퍼 모작 (맵툴, 몬스터 배치 시스템)<br>
+                <a href="https://github.com/HanUIn123/CoreKeeper" target="_blank">GitHub</a> | 
+                <a href="https://youtu.be/p2AZdOhzHo4" target="_blank">YouTube</a>
+              </li>
+              <li><b>SNOW BROTHERS 2</b> (WinAPI 2D, 개인 프로젝트)<br>
+                - 2D 고전 게임 모작 (충돌 처리 & 몬스터 AI)<br>
+                <a href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">GitHub</a> | 
+                <a href="https://youtu.be/7BwQi_yRieA" target="_blank">YouTube</a>
+              </li>
+              <li><b>MULTI SHOOTING (Unity_PUN2)</b> (개인 프로젝트)<br>
+                - 멀티 슈팅 게임 (네트워크 동기화, 채팅, 보스 AI)<br>
+                <a href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">GitHub</a> | 
+                <a href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">YouTube</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="section">
