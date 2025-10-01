@@ -5,127 +5,167 @@
   <title>한유인 - PDF 포트폴리오</title>
   <style>
     body {
-      background:#f0f2f5; /* 회색 배경 (용지 바깥부분) */
-      font-family: Arial, sans-serif;
-      margin:0; padding:20px;
+      background:#f0f2f5;
+      font-family: 'Arial', sans-serif;
+      margin:0;
+      padding:20px;
     }
+
+    /* A4 느낌 중앙 정렬 */
     .page {
-      background:#fff; /* A4 용지 */
-      width: 794px; /* A4 가로 px */
-      min-height: 1123px; /* A4 세로 px */
-      margin: 0 auto; /* 가운데 정렬 */
-      padding: 60px;
-      box-shadow: 0 0 10px rgba(0,0,0,.2);
+      background:#fff;
+      max-width:800px;
+      margin:20px auto;
+      padding:40px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
     }
-    h1 {
+
+    /* 헤더 */
+    .header h1 {
       text-align:center;
+      margin:0;
+      font-size:30px;
+      font-weight:bold;
+    }
+    .header .role {
+      text-align:center;
+      font-size:18px;
+      margin:5px 0 15px;
+      color:#555;
+    }
+    .header .links {
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .header .links a {
+      margin:0 10px;
       color:#2c3e50;
-      margin-bottom:6px;
+      text-decoration:none;
+      font-weight:bold;
     }
-    .subtitle {
-      text-align:center;
-      color:#555;
-      margin-bottom: 20px;
+    .header .links a:hover { text-decoration:underline; }
+
+    /* 섹션 */
+    .section {
+      margin-bottom:30px;
     }
-    .contact {
-      text-align:center;
-      font-size:14px;
-      color:#555;
-      margin-bottom: 40px;
-    }
-    h2 {
+    .section h2 {
+      font-size:20px;
+      margin-bottom:12px;
+      color:#6a4c93;
       border-bottom:2px solid #6a4c93;
+      display:inline-block;
       padding-bottom:4px;
-      margin-top:40px;
-      color:#2c3e50;
     }
-    .section { margin-bottom: 30px; }
-    .skills, .strengths {
+
+    /* 자기소개 */
+    .intro-box {
+      background:#f9fafc;
+      border:1px solid #ddd;
+      padding:15px;
+      border-radius:8px;
+      line-height:1.6;
+    }
+
+    /* 핵심 역량 카드 */
+    .grid-2 {
       display:grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top:10px;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
     }
     .card {
+      background:#fdfdfd;
+      padding:15px;
+      border-radius:8px;
+      border:1px solid #ddd;
+      text-align:center;
+      font-size:14px;
+      font-weight:bold;
+      box-shadow:0 2px 5px rgba(0,0,0,.05);
+    }
+
+    /* 기술 스택 */
+    .grid-4 {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+    .stack-card {
+      background:#fdfdfd;
+      padding:12px;
       border:1px solid #ddd;
       border-radius:8px;
-      padding:12px;
-      background:#fafafa;
-      font-size:14px;
+      text-align:center;
+      box-shadow:0 2px 5px rgba(0,0,0,.05);
     }
-    .tech { 
-      margin-top:10px; 
-      font-size:14px; 
-      color:#333;
+    .stack-card h3 {
+      margin:0 0 8px;
+      color:#6a4c93;
+      font-size:15px;
     }
   </style>
 </head>
 <body>
 
-<div class="page">
-
-  <!-- 이름 / 타이틀 -->
-  <h1>한유인</h1>
-  <p class="subtitle">게임 클라이언트 개발자</p>
-  <p class="contact">
-    C++ / DirectX / Unity 기반 프로젝트 경험<br>
-    Email: gksyy3232@gmail.com | GitHub: github.com/HanUIn123
-  </p>
-
-  <!-- 자기소개 -->
-  <div class="section">
-    <h2>자기소개</h2>
-    <p>
-      C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다.
-      Unity 엔진을 활용한 멀티 슈팅 게임과 DirectX 기반 프로젝트를 통해
-      실시간 그래픽스와 네트워크 시스템 구축 경험을 쌓았습니다.
-    </p>
-  </div>
-
-  <!-- 핵심 역량 -->
-  <div class="section">
-    <h2>핵심 역량</h2>
-    <div class="skills">
-      <div class="card"><b>게임 그래픽스</b><br>DirectX9~11, HLSL Shader</div>
-      <div class="card"><b>네트워크</b><br>Photon PUN2 기반 멀티플레이</div>
-      <div class="card"><b>게임 시스템</b><br>맵툴, Navigation, Item System</div>
-      <div class="card"><b>엔진 활용</b><br>Unity, Unreal Engine</div>
+  <div class="page">
+    <!-- 헤더 -->
+    <div class="header">
+      <h1>한유인</h1>
+      <p class="role">게임 클라이언트 개발자</p>
+      <div class="links">
+        <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a> ·
+        <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> ·
+        <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion</a>
+      </div>
     </div>
-  </div>
 
-  <!-- 기술 스택 -->
-  <div class="section">
-    <h2>기술 스택</h2>
-    <p class="tech">
-      C, C++, WinAPI, DirectX9~11, HLSL, Unity, Unreal Engine, Git, Photoshop
-    </p>
-  </div>
+    <!-- 자기소개 -->
+    <section class="section">
+      <h2>자기소개</h2>
+      <div class="intro-box">
+        <p>
+          C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다. 
+          Unity 엔진을 활용한 멀티 슈팅 게임과 DirectX 기반 개인 프로젝트를 통해 
+          실시간 그래픽스와 네트워크 시스템 구축 경험을 쌓았습니다.
+        </p>
+      </div>
+    </section>
 
-  <!-- 프로젝트 -->
-  <div class="section">
-    <h2>프로젝트</h2>
-    <div class="strengths">
-      <div class="card"><b>THYMESIA (DirectX11 3D) - 팀 프로젝트</b><br>맵툴, Shader 연출, Item System</div>
-      <div class="card"><b>MULTI SHOOTING (Unity PUN2) - 개인 프로젝트</b><br>서버 구축, 멀티 슈팅 구현</div>
-      <div class="card"><b>ROBOQUEST (DirectX11 3D) - 개인 프로젝트</b><br>유닛 AI, FPS 전투 패턴</div>
-      <div class="card"><b>SNOW BROTHERS (WinAPI 2D) - 개인 프로젝트</b><br>유닛 AI, 충돌 처리</div>
-    </div>
-  </div>
+    <!-- 핵심 역량 -->
+    <section class="section">
+      <h2>핵심 역량</h2>
+      <div class="grid-2">
+        <div class="card">🎨 게임 그래픽스<br/>DirectX9~11, HLSL Shader</div>
+        <div class="card">🌐 네트워크<br/>Photon PUN2 멀티플레이</div>
+        <div class="card">⚙️ 게임 시스템<br/>맵툴, Navigation, Item System</div>
+        <div class="card">🛠 엔진 활용<br/>Unity, Unreal Engine</div>
+      </div>
+    </section>
 
-  <!-- 학력 -->
-  <div class="section">
-    <h2>학력 및 활동</h2>
-    <p>2013.03 ~ 2020.02 : 가천대학교 전자공학과 졸업</p>
-    <p>2024.04 ~ 2025.08 : 게임 클라이언트 개발 과정 수료 예정</p>
+    <!-- 기술 스택 -->
+    <section class="section">
+      <h2>기술 스택</h2>
+      <div class="grid-4">
+        <div class="stack-card">
+          <h3>언어</h3>
+          <p>C, C++</p>
+        </div>
+        <div class="stack-card">
+          <h3>그래픽스</h3>
+          <p>DirectX9~11, HLSL</p>
+        </div>
+        <div class="stack-card">
+          <h3>엔진</h3>
+          <p>Unity, Unreal Engine</p>
+        </div>
+        <div class="stack-card">
+          <h3>도구</h3>
+          <p>Git, Photoshop</p>
+        </div>
+      </div>
+    </section>
   </div>
-
-  <!-- 연락처 -->
-  <div class="section">
-    <h2>연락처</h2>
-    <p>📱 010-8721-1493 | ✉️ gksyy3232@gmail.com</p>
-  </div>
-
-</div>
 
 </body>
 </html>
