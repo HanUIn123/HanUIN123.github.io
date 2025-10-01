@@ -59,10 +59,10 @@
       padding-bottom:4px;
     }
 
-    /* 자기소개 */
+    /* 공통 박스 */
     .intro-box {
-      background:#f9fafc;
-      border:1px solid #ddd;
+      background:#f7fbff; /* 연한 파스텔 블루 */
+      border:1px solid #cce7ff;
       padding:15px;
       border-radius:8px;
       line-height:1.6;
@@ -75,7 +75,7 @@
       gap:16px;
     }
     .card {
-      background:#f0f8ff; /* 연한 하늘색 */
+      background:#f0f8ff;
       padding:15px;
       border-radius:8px;
       border:1px solid #cce7ff;
@@ -92,7 +92,7 @@
       gap:16px;
     }
     .stack-card {
-      background:#f0f8ff; /* 연한 하늘색 */
+      background:#f0f8ff;
       padding:12px;
       border:1px solid #cce7ff;
       border-radius:8px;
@@ -120,6 +120,27 @@
       box-shadow:0 2px 6px rgba(0,0,0,.1);
     }
 
+    /* 좌우 레이아웃 (큰 GIF) */
+    .feature-box {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      background:#f7fbff;
+      border:1px solid #cce7ff;
+      border-radius:8px;
+      padding:15px;
+      margin-bottom:20px;
+    }
+    .feature-text { flex:1; }
+    .feature-gif { flex:1; text-align:center; }
+    .feature-gif img {
+      max-width:100%;
+      border-radius:8px;
+      border:1px solid #ddd;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+
     .project-header {
       display:flex;
       justify-content:space-between;
@@ -136,7 +157,6 @@
 
   <!-- 1페이지 -->
   <div class="page">
-    <!-- 헤더 -->
     <div class="header">
       <h1>한유인</h1>
       <p class="role">게임 클라이언트 개발자</p>
@@ -147,7 +167,6 @@
       </div>
     </div>
 
-    <!-- 자기소개 -->
     <section class="section">
       <h2>자기소개</h2>
       <div class="intro-box">
@@ -159,7 +178,6 @@
       </div>
     </section>
 
-    <!-- 핵심 역량 -->
     <section class="section">
       <h2>핵심 역량</h2>
       <div class="grid-2">
@@ -170,38 +188,24 @@
       </div>
     </section>
 
-    <!-- 기술 스택 -->
     <section class="section">
       <h2>기술 스택</h2>
       <div class="grid-4">
-        <div class="stack-card">
-          <h3>언어</h3>
-          <p>C, C++</p>
-        </div>
-        <div class="stack-card">
-          <h3>그래픽스</h3>
-          <p>DirectX9~11, HLSL</p>
-        </div>
-        <div class="stack-card">
-          <h3>엔진</h3>
-          <p>Unity, Unreal Engine</p>
-        </div>
-        <div class="stack-card">
-          <h3>도구</h3>
-          <p>Git, Photoshop</p>
-        </div>
+        <div class="stack-card"><h3>언어</h3><p>C, C++</p></div>
+        <div class="stack-card"><h3>그래픽스</h3><p>DirectX9~11, HLSL</p></div>
+        <div class="stack-card"><h3>엔진</h3><p>Unity, Unreal Engine</p></div>
+        <div class="stack-card"><h3>도구</h3><p>Git, Photoshop</p></div>
       </div>
     </section>
   </div>
 
-  <!-- 2페이지 : Thymesia 프로젝트 -->
+  <!-- 2페이지 -->
   <div class="page">
     <div class="project-header">
       <h2>Thymesia (DirectX11 3D) - 팀 프로젝트</h2>
       <span class="project-meta">개발 기간: 2024.03 ~ 2024.07 | 상태: 완료</span>
     </div>
 
-    <!-- 개요 -->
     <section class="section">
       <h2>개요</h2>
       <div class="intro-box">
@@ -213,7 +217,6 @@
       </div>
     </section>
 
-    <!-- 개발환경 -->
     <section class="section">
       <h2>개발 환경</h2>
       <div class="intro-box">
@@ -224,7 +227,6 @@
       </div>
     </section>
 
-    <!-- 시연영상 & 링크 -->
     <section class="section">
       <h2>시연 영상 및 링크</h2>
       <div class="intro-box">
@@ -234,7 +236,6 @@
       </div>
     </section>
 
-    <!-- 주요 구현 기능 -->
     <section class="section">
       <h2>주요 구현 기능</h2>
 
@@ -261,44 +262,49 @@
         </div>
       </div>
 
-      <div class="intro-box">
-        <h3>3. Item 시스템</h3>
-        <ul>
-          <li>아이템 등록/드롭/획득/복원 관리</li>
-          <li>베지어 곡선 기반 아이템 드롭 궤적</li>
-          <li>UV 흔들림 + 팽창/수축 애니메이션</li>
-        </ul>
-        <div class="gif-row">
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>3. Item 시스템</h3>
+          <ul>
+            <li>아이템 등록/드롭/획득/복원 관리</li>
+            <li>베지어 곡선 기반 아이템 드롭 궤적</li>
+            <li>UV 흔들림 + 팽창/수축 애니메이션</li>
+          </ul>
+        </div>
+        <div class="feature-gif">
           <img src="Shorts/Item.gif" alt="아이템 시스템" />
         </div>
       </div>
 
-      <div class="intro-box">
-        <h3>4. 상호작용 시스템</h3>
-        <ul>
-          <li>림라이트 셰이더로 상호작용 오브젝트 강조</li>
-          <li>Lock-On 시스템 (UV 흐름, 연결 라인)</li>
-          <li>상호작용 UI 버튼 (HUD 위치 변환)</li>
-        </ul>
-        <div class="gif-row">
-          <img src="Shorts/LockLine.gif" alt="LockLine 시스템" />
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>4. 상호작용 시스템</h3>
+          <ul>
+            <li>림라이트 셰이더로 상호작용 오브젝트 강조</li>
+            <li>Lock-On 시스템 (UV 흐름, 연결 라인)</li>
+            <li>상호작용 UI 버튼 (HUD 위치 변환)</li>
+          </ul>
+        </div>
+        <div class="feature-gif">
+          <img src="Shorts/LockLine.gif" alt="상호작용 시스템" />
         </div>
       </div>
 
-      <div class="intro-box">
-        <h3>5. 메쉬 인스턴싱 + 컬링 최적화</h3>
-        <ul>
-          <li>인스턴싱 전용 오브젝트 클래스 설계</li>
-          <li>DrawIndexedInstanced() 기반 GPU 렌더링 최적화</li>
-          <li>CPU 프러스텀 컬링 (AABB vs 카메라 절두체 검사)</li>
-        </ul>
-        <div class="gif-row">
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>5. 메쉬 인스턴싱 + 컬링 최적화</h3>
+          <ul>
+            <li>인스턴싱 전용 오브젝트 클래스 설계</li>
+            <li>DrawIndexedInstanced() 기반 GPU 렌더링 최적화</li>
+            <li>CPU 프러스텀 컬링 (AABB vs 카메라 절두체 검사)</li>
+          </ul>
+        </div>
+        <div class="feature-gif">
           <img src="Shorts/culling.gif" alt="프러스텀 컬링" />
         </div>
       </div>
     </section>
 
-    <!-- 담당 파트 요약 -->
     <section class="section">
       <h2>담당 파트 핵심 요약</h2>
       <div class="intro-box">
@@ -311,7 +317,6 @@
         </ul>
       </div>
     </section>
-  </div> <!-- 2페이지 끝 -->
-
+  </div>
 </body>
 </html>
