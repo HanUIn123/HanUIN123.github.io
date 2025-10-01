@@ -75,10 +75,10 @@
       gap:16px;
     }
     .card {
-      background:#fdfdfd;
+      background:#f0f8ff; /* 연한 하늘색 */
       padding:15px;
       border-radius:8px;
-      border:1px solid #ddd;
+      border:1px solid #cce7ff;
       text-align:center;
       font-size:14px;
       font-weight:bold;
@@ -92,9 +92,9 @@
       gap:16px;
     }
     .stack-card {
-      background:#fdfdfd;
+      background:#f0f8ff; /* 연한 하늘색 */
       padding:12px;
-      border:1px solid #ddd;
+      border:1px solid #cce7ff;
       border-radius:8px;
       text-align:center;
       box-shadow:0 2px 5px rgba(0,0,0,.05);
@@ -104,10 +104,37 @@
       color:#6a4c93;
       font-size:15px;
     }
+
+    /* GIF 정렬 */
+    .gif-row {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .gif-row img {
+      max-width:220px;
+      border-radius:6px;
+      border:1px solid #ddd;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+
+    .project-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .project-meta {
+      color:#555;
+      font-size:14px;
+    }
   </style>
 </head>
 <body>
 
+  <!-- 1페이지 -->
   <div class="page">
     <!-- 헤더 -->
     <div class="header">
@@ -166,7 +193,8 @@
       </div>
     </section>
   </div>
- <!-- 2페이지 : Thymesia 프로젝트 -->
+
+  <!-- 2페이지 : Thymesia 프로젝트 -->
   <div class="page">
     <div class="project-header">
       <h2>Thymesia (DirectX11 3D) - 팀 프로젝트</h2>
@@ -226,6 +254,11 @@
           <li>피격 시 파편화 (난수 + 로드리게스 회전)</li>
           <li>돌 파편 원형 퍼짐 + 중력 낙하</li>
         </ul>
+        <div class="gif-row">
+          <img src="Shorts/Splatting.gif" alt="Splatting" />
+          <img src="Shorts/RockSplatting.gif" alt="Rock Splatting" />
+          <img src="Shorts/SporeMoving.gif" alt="Spore Moving" />
+        </div>
       </div>
 
       <div class="intro-box">
@@ -235,6 +268,9 @@
           <li>베지어 곡선 기반 아이템 드롭 궤적</li>
           <li>UV 흔들림 + 팽창/수축 애니메이션</li>
         </ul>
+        <div class="gif-row">
+          <img src="Shorts/Item.gif" alt="아이템 시스템" />
+        </div>
       </div>
 
       <div class="intro-box">
@@ -244,6 +280,9 @@
           <li>Lock-On 시스템 (UV 흐름, 연결 라인)</li>
           <li>상호작용 UI 버튼 (HUD 위치 변환)</li>
         </ul>
+        <div class="gif-row">
+          <img src="Shorts/LockLine.gif" alt="LockLine 시스템" />
+        </div>
       </div>
 
       <div class="intro-box">
@@ -253,6 +292,9 @@
           <li>DrawIndexedInstanced() 기반 GPU 렌더링 최적화</li>
           <li>CPU 프러스텀 컬링 (AABB vs 카메라 절두체 검사)</li>
         </ul>
+        <div class="gif-row">
+          <img src="Shorts/culling.gif" alt="프러스텀 컬링" />
+        </div>
       </div>
     </section>
 
@@ -270,6 +312,6 @@
       </div>
     </section>
   </div> <!-- 2페이지 끝 -->
+
 </body>
 </html>
-
