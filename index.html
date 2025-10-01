@@ -73,8 +73,11 @@
     }
 
     /* 소개 좌/우 */
-    .about-wrap{ display:flex; gap:40px; align-items:flex-start; }
-    .about-left{ flex:2 }
+    .about-wrap{ 
+      display:flex; gap:60px; align-items:flex-start; 
+      justify-content:space-between;
+    }
+    .about-left{ flex:1.6 }
     .about-right{ flex:1; font-size:14px }
     .about-left h3{ margin:2px 0 10px }
     .about-left p{ line-height:1.6; margin:6px 0 14px }
@@ -83,15 +86,16 @@
     /* ---------- PROJECTS ---------- */
     .projects{
       display:grid; gap:20px;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+      justify-items:center;
     }
-    /* 강제 줄바꿈용 */
-    .grid-break{ grid-column:1 / -1; height:4px }
+    .grid-break{ grid-column:1 / -1; }
 
     .project-card{
       background:#fdfdfd; border-radius:12px; padding:18px;
       box-shadow:0 2px 6px rgba(0,0,0,.15);
       display:flex; flex-direction:column;
+      width:100%; max-width:320px;
     }
     .project-thumb{
       width:100%; height:170px; object-fit:cover; border-radius:8px;
@@ -100,22 +104,22 @@
     .project-card h3{ margin:6px 0 6px; font-size:18px }
     .project-card p{ margin:0 0 10px; color:#555 }
 
-    .project-buttons{ display:flex; gap:8px; margin-top:auto; }
+    .project-buttons{ display:flex; gap:8px; margin-top:auto; flex-wrap:wrap; }
     .btn-blue-sm{ background:var(--blue) }
     .btn-green-sm{ background:var(--green) }
     .btn-violet-sm{ background:var(--violet) }
 
     .btn-sm{
       flex:1; display:inline-flex; align-items:center; justify-content:center;
-      padding:8px 10px; border-radius:8px; color:#fff; text-decoration:none;
+      padding:8px 12px; border-radius:8px; color:#fff; text-decoration:none;
       font-weight:bold; font-size:14px; box-shadow:0 2px 6px rgba(0,0,0,.14);
       transition:transform .12s ease, filter .12s ease;
+      white-space:nowrap; min-width:95px;
     }
     .btn-sm:hover{ transform:translateY(-1px); filter:brightness(.95) }
 
     .btn-icon{
-      width:18px; height:18px; margin-right:6px; vertical-align:-3px;
-      filter: drop-shadow(0 1px 0 rgba(0,0,0,.15));
+      width:18px; height:18px; margin-right:6px; vertical-align:middle;
     }
 
     /* ---------- SKILLS & CONTACT ---------- */
@@ -127,6 +131,7 @@
       .header-inner{ flex-direction:column; text-align:center }
       .hero-actions{ justify-content:center }
       .about-wrap{ flex-direction:column }
+      .projects{ grid-template-columns:1fr }
     }
   </style>
 </head>
@@ -222,7 +227,7 @@
         </div>
       </article>
 
-      <!-- 강제 줄바꿈: 2칸 / 3칸 배치 -->
+      <!-- 강제 줄바꿈 -->
       <div class="grid-break"></div>
 
       <!-- 하단 3개 -->
