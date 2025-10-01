@@ -10,11 +10,11 @@
       background: #f9fafc;
       color: #333;
     }
-    /* 상단 네비 + 헤더 */
+    /* 상단 헤더 */
     header {
       background: #6a4c93;
       color: #fff;
-      padding: 40px;
+      padding: 60px 20px 40px;
       text-align: center;
       position: relative;
     }
@@ -29,28 +29,37 @@
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
+    nav a:hover { text-decoration: underline; }
     header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      border-radius: 20px; /* 정사각형 + 둥근 모서리 */
+      object-fit: cover;
       border: 4px solid #fff;
-      margin-top: 20px;
     }
-    header h1 {
-      margin: 15px 0 5px;
-      font-size: 28px;
+    header h1 { margin: 20px 0 8px; font-size: 32px; }
+    header p { margin: 4px 0; font-size: 16px; }
+    .header-buttons {
+      margin-top: 15px;
     }
-    header p {
-      margin: 5px 0;
+    .header-buttons a {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background: #2ecc71;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
     }
+    .header-buttons a:first-child { background: #3498db; }
+    .header-buttons a:hover { background: #1f3c88; }
 
-    /* 섹션 공통 */
+    /* 섹션 */
     .section {
-      max-width: 1000px;
-      margin: 40px auto;
+      max-width: 1100px;
+      margin: 50px auto;
       padding: 30px;
       background: #fff;
       border-radius: 12px;
@@ -63,6 +72,26 @@
       padding-bottom: 5px;
       color: #6a4c93;
     }
+    .about-wrap {
+      display: flex;
+      gap: 40px;
+    }
+    .about-left { flex: 2; }
+    .about-right { flex: 1; font-size: 14px; }
+    .about-left h3 { margin: 0 0 10px; color: #333; }
+    .about-left p { margin: 8px 0 15px; line-height: 1.6; }
+    .about-left ul { padding-left: 18px; }
+    .about-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #3498db;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .about-button:hover { background: #1f3c88; }
 
     /* 프로젝트 카드 */
     .projects {
@@ -75,82 +104,63 @@
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
     }
     .project-card img {
-      width: 100%;
-      border-radius: 6px;
-      margin-bottom: 10px;
+      width: 100%; border-radius: 6px; margin-bottom: 10px;
     }
     .project-card a img.icon {
-      width: 20px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-
-    /* 기술스택 */
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-    }
-    .skills ul {
-      list-style: none;
-      padding: 0;
-    }
-    .skills li {
-      margin-bottom: 8px;
-    }
-
-    /* 연락처 */
-    .contact p {
-      margin: 8px 0;
-    }
-    .contact a {
-      color: #6a4c93;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .contact a:hover {
-      text-decoration: underline;
+      width: 20px; vertical-align: middle; margin-right: 6px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 배너 -->
+  <!-- 헤더 -->
   <header>
     <nav>
-      <a href="#about">자기소개</a>
+      <a href="#about">소개</a>
       <a href="#projects">프로젝트</a>
       <a href="#skills">기술스택</a>
       <a href="#contact">연락처</a>
     </nav>
-    <img src="Images/profile.jpg" alt="프로필 사진">
+    <img src="Images/profile.jpg" alt="프로필">
     <h1>한유인</h1>
     <p>게임 클라이언트 개발자</p>
-    <p>C++/DirectX/Unity 기반 프로젝트 경험</p>
+    <p>C++ / DirectX / Unity 기반 프로젝트 경험</p>
+    <div class="header-buttons">
+      <a href="#projects">프로젝트 보기</a>
+      <a href="tymesia_stack.pdf" target="_blank">PDF 포트폴리오</a>
+    </div>
   </header>
 
   <!-- 소개 -->
   <div id="about" class="section">
     <h2>소개</h2>
-    <p>
-      C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다.<br>
-      Unity 엔진으로 멀티 슈팅 게임을 제작하며 상용 엔진 경험을 쌓았고, Unreal Engine으로도 영역을 넓혀가고 있습니다.<br>
-      효율적이고 안정적인 코드를 작성하며, 지속적으로 성장하는 개발자가 되겠습니다.
-    </p>
-    <ul>
-      <li>2013.03 ~ 2020.02 : 가천대학교 전자공학과 졸업</li>
-      <li>2019.09 ~ 2019.12 : (전공 스터디) 아두이노 센서 제어 + 자동 급수 시스템</li>
-      <li>2020.09 ~ 2020.12 : (팀 스터디) WinAPI "포레이저" 제작</li>
-      <li>2021.02 ~ 2021.04 : (팀 스터디) Unity RPG "던전 탐사대" 제작</li>
-      <li>2021.06 ~ 2021.07 : (개인 활동) Unity 디펜스 게임 제작</li>
-      <li>2024.04 ~ 2025.08 : 게임 클라이언트 개발 과정 수료 예정</li>
-    </ul>
+    <div class="about-wrap">
+      <div class="about-left">
+        <h3>게임 클라이언트 개발에 대한 열정</h3>
+        <p>
+          C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다.<br>
+          Unity 엔진을 활용해 멀티 슈팅 게임을 제작하며 상용 엔진 경험을 쌓았고,  
+          Unreal Engine으로도 영역을 넓혀가고 있습니다.
+        </p>
+        <p><b>주요 기술</b><br>
+          C, C++, WinAPI, DirectX9~11, HLSL, Unity, Unreal Engine
+        </p>
+        <a href="about.html" class="about-button">자세한 자기소개 보기</a>
+      </div>
+      <div class="about-right">
+        <b>학력 및 활동</b>
+        <ul>
+          <li>2013.03 ~ 2020.02 : 가천대학교 전자공학과 졸업</li>
+          <li>2019.09 ~ 2019.12 : (전공 스터디) 아두이노 센서 제어</li>
+          <li>2020.09 ~ 2020.12 : (팀 스터디) WinAPI "포레이저"</li>
+          <li>2021.02 ~ 2021.04 : (팀 스터디) Unity RPG "던전 탐사대"</li>
+          <li>2021.06 ~ 2021.07 : (개인 활동) Unity 디펜스 게임 제작</li>
+          <li>2024.04 ~ 2025.08 : 게임 클라이언트 개발 과정 수료 예정</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <!-- 프로젝트 -->
@@ -164,94 +174,27 @@
         <a href="https://github.com/HanUIn123/Thymesia" target="_blank">
           <img src="Images/Git.png" class="icon">GitHub
         </a>
-        <br>
         <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">
           <img src="Images/YouTube.png" class="icon">YouTube
         </a>
       </div>
-
-      <div class="project-card">
-        <img src="Images/roboquest.jpg" alt="ROBOQUEST">
-        <h3>ROBOQUEST (DirectX11 3D)</h3>
-        <p>게임 내 유닛 AI, 맵, FPS 전투 패턴</p>
-        <a href="https://github.com/HanUIn123/RoboQuest" target="_blank">
-          <img src="Images/Git.png" class="icon">GitHub
-        </a><br>
-        <a href="https://youtu.be/q8If1wbsMpg" target="_blank">
-          <img src="Images/YouTube.png" class="icon">YouTube
-        </a>
-      </div>
-
-      <div class="project-card">
-        <img src="Images/corekeeper.jpg" alt="COREKEEPER">
-        <h3>COREKEEPER (DirectX9 3D)</h3>
-        <p>맵툴, 맵 제작</p>
-        <a href="https://github.com/HanUIn123/CoreKeeper" target="_blank">
-          <img src="Images/Git.png" class="icon">GitHub
-        </a><br>
-        <a href="https://youtu.be/p2AZdOhzHo4" target="_blank">
-          <img src="Images/YouTube.png" class="icon">YouTube
-        </a>
-      </div>
-
-      <div class="project-card">
-        <img src="Images/snowbrothers.jpg" alt="Snow Brothers">
-        <h3>SNOW BROTHERS (WinAPI 2D)</h3>
-        <p>유닛 AI, 충돌 처리</p>
-        <a href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">
-          <img src="Images/Git.png" class="icon">GitHub
-        </a><br>
-        <a href="https://youtu.be/7BwQi_yRieA" target="_blank">
-          <img src="Images/YouTube.png" class="icon">YouTube
-        </a>
-      </div>
-
-      <div class="project-card">
-        <img src="Images/multishooting.jpg" alt="Multi Shooting">
-        <h3>MULTI SHOOTING (Unity PUN2)</h3>
-        <p>PUN2 기반 서버 구축, 횡스크롤 슈팅</p>
-        <a href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">
-          <img src="Images/Git.png" class="icon">GitHub
-        </a><br>
-        <a href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">
-          <img src="Images/YouTube.png" class="icon">YouTube
-        </a>
-      </div>
+      <!-- 다른 프로젝트들 동일하게 카드 복붙 -->
     </div>
   </div>
 
   <!-- 기술스택 -->
   <div id="skills" class="section">
     <h2>기술 스택</h2>
-    <div class="skills">
-      <ul>
-        <li><b>언어</b></li>
-        <li>C, C++</li>
-        <li>WinAPI</li>
-      </ul>
-      <ul>
-        <li><b>그래픽스</b></li>
-        <li>DirectX9~11</li>
-        <li>HLSL</li>
-        <li>Shader Programming</li>
-      </ul>
-      <ul>
-        <li><b>엔진 & 도구</b></li>
-        <li>Unity</li>
-        <li>Unreal Engine</li>
-        <li>Git</li>
-        <li>Photoshop</li>
-      </ul>
-    </div>
+    <p>C, C++, DirectX9~11, HLSL, Unity, Unreal Engine, Git, Photoshop</p>
   </div>
 
   <!-- 연락처 -->
-  <div id="contact" class="section contact">
+  <div id="contact" class="section">
     <h2>연락처</h2>
     <p>📱 Phone : 010-8721-1493</p>
-    <p>✉️ Email : <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a></p>
-    <p>💻 GitHub : <a href="https://github.com/HanUIn123" target="_blank">github.com/HanUIn123</a></p>
-    <p>📒 Notion : <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion 포트폴리오</a></p>
+    <p>✉️ Email : gksyy3232@gmail.com</p>
+    <p>💻 GitHub : <a href="https://github.com/HanUIn123">github.com/HanUIn123</a></p>
+    <p>📒 Notion : <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7">Notion 포트폴리오</a></p>
   </div>
 
 </body>
