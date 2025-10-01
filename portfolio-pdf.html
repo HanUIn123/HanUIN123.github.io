@@ -47,9 +47,7 @@
     .header .links a:hover { text-decoration:underline; }
 
     /* 섹션 */
-    .section {
-      margin-bottom:30px;
-    }
+    .section { margin-bottom:30px; }
     .section h2 {
       font-size:20px;
       margin-bottom:12px;
@@ -141,6 +139,7 @@
       box-shadow:0 2px 6px rgba(0,0,0,.1);
     }
 
+    /* 프로젝트 헤더 */
     .project-header {
       display:flex;
       justify-content:space-between;
@@ -150,6 +149,23 @@
     .project-meta {
       color:#555;
       font-size:14px;
+    }
+
+    /* 최적화 사례 */
+    .tag-row {
+      margin-top:15px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag {
+      background:#e6f2ff;
+      border:1px solid #cce0ff;
+      padding:6px 14px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:bold;
+      color:#004080;
     }
   </style>
 </head>
@@ -161,9 +177,10 @@
       <h1>한유인</h1>
       <p class="role">게임 클라이언트 개발자</p>
       <div class="links">
-        <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a> ·
-        <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> ·
-        <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion</a>
+        📱 <a href="tel:010-8721-1493">010-8721-1493</a> ·
+        ✉️ <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a> ·
+        💻 <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> ·
+        📒 <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion</a>
       </div>
     </div>
 
@@ -230,8 +247,9 @@
     <section class="section">
       <h2>시연 영상 및 링크</h2>
       <div class="intro-box">
-        🎥 <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">Thymesia 시연 영상</a><br/>
-        💻 <a href="https://github.com/HanUIn123" target="_blank">GitHub 메인 프로필</a><br/>
+        🎥 <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">Thymesia 시연 영상</a> / 
+        🛠️ <a href="https://youtu.be/T3UJbHMiLYw" target="_blank">맵툴 시연 영상</a> / 
+        💻 <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> / 
         📄 <a href="tymesia_stack.pdf" target="_blank">기술소개서 PDF</a>
       </div>
     </section>
@@ -306,15 +324,20 @@
     </section>
 
     <section class="section">
-      <h2>담당 파트 핵심 요약</h2>
+      <h2>최적화 사례</h2>
       <div class="intro-box">
         <ul>
-          <li>Navigation 셀 기반 맵툴 시스템</li>
-          <li>Geometry Shader 기반 연출: 파편화, 파동 애니메이션</li>
-          <li>베지어 곡선 아이템 드롭 시스템</li>
-          <li>림라이트 / Lock-On 상호작용 / UI 버튼</li>
-          <li>인스턴싱 및 프러스텀 컬링 최적화</li>
+          <li>🟢 네비게이션 메쉬를 직접 생성하여 플레이어/몬스터가 벽·지형과 불필요한 충돌 검사를 하지 않도록 최적화</li>
+          <li>🟢 메쉬 인스턴싱으로 수백 개의 동일 지형 드로우콜을 줄여 GPU 렌더링 효율 향상</li>
+          <li>🟢 프러스텀 컬링으로 카메라 밖 오브젝트를 제거하여 CPU/GPU 불필요한 연산 감소</li>
         </ul>
+        <div class="tag-row">
+          <div class="tag">C++</div>
+          <div class="tag">DirectX11</div>
+          <div class="tag">HLSL</div>
+          <div class="tag">ImGui</div>
+          <div class="tag">Fmod</div>
+        </div>
       </div>
     </section>
   </div>
