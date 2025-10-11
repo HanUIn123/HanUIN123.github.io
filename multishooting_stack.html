@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photon 멀티플레이 슈팅 게임</title>
 
-  <!-- 스타일 -->
+  <!-- highlight.js 스타일 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
+
   <style>
     body {
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
@@ -32,7 +33,6 @@
       font-size: 18px;
       opacity: 0.9;
     }
-
     .tag-container {
       margin-top: 20px;
     }
@@ -45,6 +45,7 @@
       font-size: 14px;
     }
 
+    /* 전체 컨테이너 */
     .container {
       max-width: 1000px;
       margin: -60px auto 80px;
@@ -104,6 +105,17 @@
       font-size: 14px;
       line-height: 1.5;
     }
+
+    /* 결과 GIF */
+    .preview {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .preview img {
+      width: 85%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 
@@ -123,6 +135,8 @@
 
   <!-- 본문 -->
   <div class="container">
+
+    <!-- 프로젝트 개요 -->
     <section>
       <h2>프로젝트 개요</h2>
       <p>
@@ -131,6 +145,7 @@
       </p>
     </section>
 
+    <!-- 핵심 기능 -->
     <section>
       <h2>핵심 기능</h2>
       <div class="feature-grid">
@@ -161,6 +176,7 @@
       </div>
     </section>
 
+    <!-- 게임 플로우 -->
     <section>
       <h2>게임 플로우</h2>
       <div class="flow-item">1️⃣ Photon 서버 연결 및 로비 입장</div>
@@ -171,9 +187,15 @@
       <div class="flow-item">6️⃣ 실시간 채팅 송수신</div>
     </section>
 
+    <!-- 네트워크 구축 -->
     <section>
       <h2>PhotonPUN2 네트워크 구축</h2>
       <p><strong>NetworkManager.cs</strong></p>
+
+      <div class="preview">
+        <img src="Unity_Shorts/JoinRoom.gif" alt="Join Room GIF 미리보기">
+      </div>
+
       <pre><code class="language-csharp">using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -297,9 +319,15 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 }</code></pre>
     </section>
 
+    <!-- 채팅 시스템 -->
     <section>
       <h2>채팅 시스템 구현</h2>
       <p><strong>ChatManager.cs</strong></p>
+
+      <div class="preview">
+        <img src="Unity_Shorts/Chatting.gif" alt="Chatting GIF 미리보기">
+      </div>
+
       <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -352,6 +380,7 @@ public class ChatManager : MonoBehaviourPunCallbacks
     </section>
   </div>
 
+  <!-- highlight.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
 </body>
