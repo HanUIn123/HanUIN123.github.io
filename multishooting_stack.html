@@ -402,13 +402,29 @@ public class ChatManager : MonoBehaviourPunCallbacks
     </section>
   </div>
 
-  <!-- ✅ highlight.js 스크립트 최신 버전 & C# 언어팩 -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      hljs.highlightAll();
-    });
-  </script>
+<!-- ✅ highlight.js 스크립트 최신 버전 + 언어 등록 확실히 -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // C# 언어 수동 등록 (자동 감지 실패 방지)
+  hljs.registerLanguage('csharp', window.hljsDefineCSharp);
+  hljs.highlightAll();
+
+  // 강제로 테마 색상 보장 (간혹 CSS 캐시 꼬임 대비)
+  document.querySelectorAll('pre code').forEach((block) => {
+    block.style.background = '#0d1117';
+    block.style.color = '#c9d1d9';
+    block.style.display = 'block';
+    block.style.padding = '14px 18px';
+    block.style.borderRadius = '10px';
+  });
+});
+</script>
 </body>
 </html>
+
