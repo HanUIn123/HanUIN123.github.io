@@ -21,6 +21,7 @@
       font-family:Arial,Helvetica,sans-serif;
       background:var(--paper);
       color:var(--ink);
+      transition: opacity 0.25s ease-in-out;
     }
 
     /* ---------- NAV + HEADER ---------- */
@@ -44,7 +45,7 @@
       display:flex; 
       align-items:center; 
       justify-content:center;
-      gap:170px; /* ✅ 글과 사진 사이 간격 더 넓힘 */
+      gap:170px;
     }
     .hero-text h1{ margin:4px 0 8px; font-size:34px }
     .hero-text .role{ opacity:.95; margin:0 0 4px }
@@ -138,7 +139,9 @@
     }
   </style>
 </head>
+
 <body>
+  <main id="content"><!-- 모든 내용은 이 안에 들어감 -->
 
   <!-- HEADER -->
   <header>
@@ -150,7 +153,6 @@
     </nav>
 
     <div class="header-inner">
-      <!-- 좌측 텍스트 -->
       <div class="hero-text">
         <h1>한유인</h1>
         <p class="role">게임 클라이언트 개발자</p>
@@ -160,7 +162,6 @@
           <a class="btn btn-green" href="portfolio-pdf.html" target="_blank">PDF 포트폴리오</a>
         </div>
       </div>
-      <!-- 우측 사진 -->
       <img class="hero-photo" src="Images/blueFace.jpg" alt="프로필 사진" />
     </div>
   </header>
@@ -197,7 +198,6 @@
   <section id="projects" class="section">
     <h2>프로젝트</h2>
 
-    <!-- 상단 2개 -->
     <div class="row row-2">
       <article class="project-card">
         <img class="project-thumb" src="Images/tymesia.jpg" alt="THYMESIA 썸네일" />
@@ -219,7 +219,7 @@
         <h3>MULTI SHOOTING (Unity PUN2) - 개인 프로젝트</h3>
         <p>PUN2 기반 서버 구축, 횡스크롤 슈팅</p>
         <div class="project-buttons">
-          <a class="btn-sm btn-blue-sm" href="multishooting_stack.html" target="_blank">자세히 보기</a>
+          <a class="btn-sm btn-blue-sm" href="javascript:void(0);" onclick="loadPage('multishooting_stack.html')">자세히 보기</a>
           <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">
             <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
           </a>
@@ -229,60 +229,13 @@
         </div>
       </article>
     </div>
-
-    <!-- 하단 3개 -->
-    <div class="row row-3">
-      <article class="project-card">
-        <img class="project-thumb" src="Images/roboquest.jpg" alt="ROBOQUEST 썸네일" />
-        <h3>ROBOQUEST (DirectX11 3D) - 개인 프로젝트</h3>
-        <p>게임 내 유닛 AI, 맵, FPS 전투 패턴</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/RoboQuest" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/q8If1wbsMpg" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-thumb" src="Images/corekeeper.jpg" alt="COREKEEPER 썸네일" />
-        <h3>COREKEEPER (DirectX9 3D) - 팀 프로젝트</h3>
-        <p>맵툴, 맵 제작</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/CoreKeeper" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/p2AZdOhzHo4" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-thumb" src="Images/snowbrothers.jpg" alt="SNOW BROTHERS 썸네일" />
-        <h3>SNOW BROTHERS (WinAPI 2D) - 개인 프로젝트</h3>
-        <p>유닛 AI, 충돌 처리</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/7BwQi_yRieA" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-    </div>
   </section>
 
-  <!-- 기술 스택 -->
   <section id="skills" class="section">
     <h2>기술 스택</h2>
     <p>C, C++, DirectX9~11, HLSL, Unity, Unreal Engine, Git, Photoshop</p>
   </section>
 
-  <!-- 연락처 -->
   <section id="contact" class="section contact">
     <h2>연락처</h2>
     <p>📱 Phone : 010-8721-1493</p>
@@ -290,6 +243,25 @@
     <p>💻 GitHub : <a href="https://github.com/HanUIn123" target="_blank">github.com/HanUIn123</a></p>
     <p>📒 Notion : <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion 포트폴리오</a></p>
   </section>
+  </main>
 
+  <!-- JS: 페이지 전환 -->
+  <script>
+    function loadPage(page) {
+      document.body.style.opacity = 0;
+      fetch(page)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newBody = doc.body.innerHTML;
+          document.body.innerHTML = newBody;
+
+          window.scrollTo(0, 0);
+          document.body.style.opacity = 1;
+        })
+        .catch(err => console.error("페이지 로드 실패:", err));
+    }
+  </script>
 </body>
 </html>
