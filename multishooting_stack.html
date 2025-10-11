@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multi Shooting - Photon 서버 구축</title>
 
-    <!--  Highlight.js 추가 부분  -->
+  <!-- ✅ Highlight.js 추가 부분 (이게 핵심) -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
-  <!--  -->
-  
+  <!-- ✅ 여기까지 복붙 -->
+
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -68,8 +68,10 @@
       아래는 서버 연결 → 로비 진입 → 방 생성 및 입장 → 씬 동기화 흐름을 담당하는 핵심 코드입니다.
     </p>
 
+    <!-- ✅ 언어 지정 추가 -->
     <h2>🚀 서버 연결 & 로비 입장</h2>
-    <pre><code>void Start()
+    <pre><code class="language-cs">
+void Start()
 {
     PhotonNetwork.NickName = "플레이어#" + Random.Range(1000, 9999);
     PhotonNetwork.ConnectUsingSettings();
@@ -86,10 +88,11 @@ public override void OnJoinedLobby()
 {
     statusText.text = "로비 입장 완료!";
 }
-</code></pre>
+    </code></pre>
 
     <h2>🏠 방 생성 및 입장 처리</h2>
-    <pre><code>public void SubmitCreateRoom()
+    <pre><code class="language-cs">
+public void SubmitCreateRoom()
 {
     string roomName = roomNameInput.text;
     if (string.IsNullOrEmpty(roomName)) return;
@@ -104,15 +107,18 @@ public void SubmitJoinRoom()
     if (string.IsNullOrEmpty(roomName)) return;
 
     PhotonNetwork.JoinRoom(roomName);
-}</code></pre>
+}
+    </code></pre>
 
     <h2>🔄 씬 동기화 및 연결 유지</h2>
-    <pre><code>public override void OnJoinedRoom()
+    <pre><code class="language-cs">
+public override void OnJoinedRoom()
 {
     DontDestroyOnLoad(this.gameObject);
     PhotonNetwork.AutomaticallySyncScene = true;
     SceneManager.LoadScene("GameScene");
-}</code></pre>
+}
+    </code></pre>
 
     <p class="note">
       ☑️ 위 구조를 통해 각 유저는 같은 씬에서 실시간으로 동기화된 플레이가 가능하며,<br/>
@@ -120,5 +126,4 @@ public void SubmitJoinRoom()
     </p>
   </div>
 </body>
-
 </html>
