@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Photon 멀티플레이 슈팅 게임</title>
-
-  <!-- highlight.js 스타일 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
-
+<main>
   <style>
     body {
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
@@ -18,24 +9,28 @@
       line-height: 1.7;
     }
 
-    /* 상단 헤더 */
     .header {
       background: linear-gradient(135deg, #5d4bff, #8f6eff);
       color: white;
       padding: 80px 20px 100px;
       text-align: center;
+      position: relative;
     }
+
     .header h1 {
       font-size: 40px;
       margin-bottom: 10px;
     }
+
     .header p {
       font-size: 18px;
       opacity: 0.9;
     }
+
     .tag-container {
       margin-top: 20px;
     }
+
     .tag {
       display: inline-block;
       background: rgba(255,255,255,0.15);
@@ -45,7 +40,6 @@
       font-size: 14px;
     }
 
-       /* ✅ 우측 상단 '메인으로' 버튼 */
     .back-btn {
       position: absolute;
       top: 25px;
@@ -60,12 +54,12 @@
       text-decoration: none;
       transition: 0.2s ease;
     }
+
     .back-btn:hover {
       background: white;
       color: #5d4bff;
     }
 
-    /* 전체 컨테이너 */
     .container {
       max-width: 1000px;
       margin: -60px auto 80px;
@@ -87,12 +81,12 @@
       margin-bottom: 25px;
     }
 
-    /* 핵심 기능 카드 */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 20px;
     }
+
     .feature-card {
       background: #fff;
       border-radius: 12px;
@@ -100,17 +94,18 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: 0.3s;
     }
+
     .feature-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
+
     .feature-card h3 {
       margin-top: 0;
       color: #5d4bff;
       font-size: 17px;
     }
 
-    /* 게임 플로우 */
     .flow-item {
       background: #f3f5ff;
       padding: 15px 20px;
@@ -118,7 +113,6 @@
       margin-bottom: 10px;
     }
 
-    /* 코드 블록 */
     pre {
       border-radius: 10px;
       overflow-x: auto;
@@ -126,22 +120,21 @@
       line-height: 1.5;
     }
 
-    /* 결과 GIF */
     .preview {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .preview img {
       width: 85%;
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
   </style>
-</head>
 
-<body>
   <!-- 헤더 -->
   <div class="header">
+    <a href="index.html" class="back-btn">메인으로</a>
     <h1>Photon 멀티플레이 슈팅 게임</h1>
     <p>Photon PUN2 기반의 네트워크 연결, 채팅, 보스 공격 패턴, 탄막 등을 구현한 2D 멀티플레이 슈팅 게임입니다.</p>
     <div class="tag-container">
@@ -153,10 +146,7 @@
     </div>
   </div>
 
-  <!-- 본문 -->
   <div class="container">
-
-    <!-- 프로젝트 개요 -->
     <section>
       <h2>프로젝트 개요</h2>
       <p>
@@ -165,38 +155,18 @@
       </p>
     </section>
 
-    <!-- 핵심 기능 -->
     <section>
       <h2>핵심 기능</h2>
       <div class="feature-grid">
-        <div class="feature-card">
-          <h3>서버 연결 및 로비 입장</h3>
-          <p>닉네임 설정 후 Photon 서버에 연결하고 로비에 자동 입장합니다.</p>
-        </div>
-        <div class="feature-card">
-          <h3>방 생성 / 입장</h3>
-          <p>UI 입력 필드 기반으로 방 생성 및 입장이 가능합니다.</p>
-        </div>
-        <div class="feature-card">
-          <h3>보스 HP 실시간 동기화</h3>
-          <p>MasterClient 기준 HP 변경이 모든 클라이언트에 실시간 반영됩니다.</p>
-        </div>
-        <div class="feature-card">
-          <h3>보스 탄막 패턴</h3>
-          <p>원형, 스파이럴, 샷건형 탄막 패턴을 RPC로 전체 플레이어에게 동기화합니다.</p>
-        </div>
-        <div class="feature-card">
-          <h3>채팅 시스템</h3>
-          <p>Photon RPC를 통해 모든 유저와 실시간 채팅이 가능합니다.</p>
-        </div>
-        <div class="feature-card">
-          <h3>씬 전환 동기화</h3>
-          <p>PhotonNetwork.AutomaticallySyncScene 옵션을 통해 모든 유저 동일 씬 진입을 보장합니다.</p>
-        </div>
+        <div class="feature-card"><h3>서버 연결 및 로비 입장</h3><p>닉네임 설정 후 Photon 서버에 연결하고 로비에 자동 입장합니다.</p></div>
+        <div class="feature-card"><h3>방 생성 / 입장</h3><p>UI 입력 필드 기반으로 방 생성 및 입장이 가능합니다.</p></div>
+        <div class="feature-card"><h3>보스 HP 실시간 동기화</h3><p>MasterClient 기준 HP 변경이 모든 클라이언트에 실시간 반영됩니다.</p></div>
+        <div class="feature-card"><h3>보스 탄막 패턴</h3><p>원형, 스파이럴, 샷건형 탄막 패턴을 RPC로 전체 플레이어에게 동기화합니다.</p></div>
+        <div class="feature-card"><h3>채팅 시스템</h3><p>Photon RPC를 통해 모든 유저와 실시간 채팅이 가능합니다.</p></div>
+        <div class="feature-card"><h3>씬 전환 동기화</h3><p>PhotonNetwork.AutomaticallySyncScene 옵션을 통해 모든 유저 동일 씬 진입을 보장합니다.</p></div>
       </div>
     </section>
 
-    <!-- 게임 플로우 -->
     <section>
       <h2>게임 플로우</h2>
       <div class="flow-item">1️⃣ Photon 서버 연결 및 로비 입장</div>
@@ -207,15 +177,10 @@
       <div class="flow-item">6️⃣ 실시간 채팅 송수신</div>
     </section>
 
-    <!-- 네트워크 구축 -->
     <section>
       <h2>PhotonPUN2 네트워크 구축</h2>
       <p><strong>NetworkManager.cs</strong></p>
-
-      <div class="preview">
-        <img src="Unity_Shorts/JoinRoom.gif" alt="Join Room GIF 미리보기">
-      </div>
-
+      <div class="preview"><img src="Unity_Shorts/JoinRoom.gif" alt="Join Room GIF"></div>
       <pre><code class="language-csharp">using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -336,18 +301,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         statusText.text = $"서버 연결 끊김: {cause}";
     }
-}</code></pre>
+}
+</code></pre>
     </section>
 
-    <!-- 채팅 시스템 -->
     <section>
       <h2>채팅 시스템 구현</h2>
       <p><strong>ChatManager.cs</strong></p>
-
-      <div class="preview">
-        <img src="Unity_Shorts/Chatting.gif" alt="Chatting GIF 미리보기">
-      </div>
-
+      <div class="preview"><img src="Unity_Shorts/Chatting.gif" alt="Chatting GIF"></div>
       <pre><code class="language-csharp">using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -396,17 +357,12 @@ public class ChatManager : MonoBehaviourPunCallbacks
     {
         return EventSystem.current.currentSelectedGameObject == chatInputField.gameObject;
     }
-}</code></pre>
+}
+</code></pre>
     </section>
   </div>
 
-  <!-- highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      hljs.highlightAll();
-    });
-  </script>
-</body>
-</html>
-
+  <script>document.addEventListener("DOMContentLoaded", () => hljs.highlightAll());</script>
+</main>
