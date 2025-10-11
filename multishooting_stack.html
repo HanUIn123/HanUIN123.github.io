@@ -1,129 +1,232 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Multi Shooting - Photon 서버 구축</title>
-
-  <!-- ✅ Highlight.js 추가 부분 (이게 핵심) -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
-  <!-- ✅ 여기까지 복붙 -->
-
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f9;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-    }
-    h1 {
-      color: #6a4c93;
-      margin-bottom: 10px;
-    }
-    h2 {
-      color: #444;
-      margin-top: 30px;
-    }
-    p.description {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-    pre {
-      background: #1e1e1e;
-      color: #ddd;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-      font-size: 14px;
-    }
-    code {
-      font-family: Consolas, monospace;
-    }
-    .note {
-      font-size: 14px;
-      color: #666;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
+<section class="project-section">
   <div class="container">
-    <h1>Multi Shooting (Unity PUN2)</h1>
-    <h2>📡 Photon 서버 구축</h2>
-    <p class="description">
-      이 프로젝트는 Photon PUN2를 이용해 유저가 직접 방을 만들거나 참가하여 멀티플레이를 할 수 있도록 구성된 구조입니다.<br />
-      아래는 서버 연결 → 로비 진입 → 방 생성 및 입장 → 씬 동기화 흐름을 담당하는 핵심 코드입니다.
-    </p>
+    <h1 class="project-title">Photon 멀티플레이 슈팅 게임</h1>
+    <p class="project-subtitle">Photon PUN2 기반의 네트워크 연결, 채팅, 보스 공격 패턴, 탄막 등을 구현한 2D 멀티플레이 슈팅 게임입니다.</p>
 
-    <!-- ✅ 언어 지정 추가 -->
-    <h2>🚀 서버 연결 & 로비 입장</h2>
-    <pre><code class="language-cs">
-void Start()
+    <div class="section">
+      <h2>📌 프로젝트 개요</h2>
+      <p>
+        이 프로젝트는 Unity 엔진과 Photon PUN2을 활용하여, 2인의 유저가 같은 룸에 접속해 실시간으로 보스 탄막 패턴을 피하면서 협동 슈팅을 즐길 수 있도록 설계된 게임입니다. 
+        <br>서버 입장, 방 생성 및 참가, 채팅 시스템, 보스 HP UI 동기화, 그리고 보스 탄막 패턴 등이 포함되어 있습니다.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🎯 핵심 기능</h2>
+      <ul>
+        <li><strong>서버 연결 및 로비 입장</strong> – 닉네임 설정 후 Photon 서버에 연결하고 로비 자동 입장</li>
+        <li><strong>방 생성 / 입장</strong> – 입력 필드 기반의 룸 생성 및 입장 처리 UI 구성</li>
+        <li><strong>보스 HP UI 실시간 동기화</strong> – MasterClient 기준으로 HP 갱신 후 전체 클라이언트 동기화</li>
+        <li><strong>보스 탄막 패턴</strong> – 원형, 스파이럴, 샷건 방식의 패턴 구현 및 RPC를 통한 생성</li>
+        <li><strong>채팅 시스템</strong> – Photon RPC로 전체 유저와 실시간 채팅 주고받기</li>
+        <li><strong>씬 전환 동기화</strong> – 게임 시작 시 `PhotonNetwork.AutomaticallySyncScene` 활성화로 모든 유저 동일 씬 진입</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔁 게임 플로우</h2>
+      <ol>
+        <li>Photon 서버 연결 및 로비 입장</li>
+        <li>방 생성 or 방 참가 UI 표시</li>
+        <li>방 입장 성공 시 GameScene 동기화 로드</li>
+        <li>게임 시작 후 보스 등장 및 패턴 발동</li>
+        <li>Laser 데미지, Bullet 피격 등에 따른 HP 동기화</li>
+        <li>게임 중 실시간 채팅 송수신</li>
+      </ol>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ PhotonPUN2 네트워크 구축</h2>
+      <p><strong>NetworkManager.cs</strong> 전체 코드:</p>
+      <pre><code class="language-csharp">
+using Photon.Pun;
+using Photon.Realtime;
+using TMPro;
+using UnityEngine;
+using System.Collections;  
+using UnityEngine.SceneManagement;
+
+public class NetworkManager : MonoBehaviourPunCallbacks
 {
-    PhotonNetwork.NickName = "플레이어#" + Random.Range(1000, 9999);
-    PhotonNetwork.ConnectUsingSettings();
-    statusText.text = "서버 연결 중...";
-}
+    [Header("방 생성 UI")]
+    public GameObject createRoomInputFieldObj;
+    public GameObject createRoomSubmitButtonObj;
+    public TMP_InputField roomNameInput;
 
-public override void OnConnectedToMaster()
+    [Header("상태 출력 텍스트")]
+    public TextMeshProUGUI statusText;
+
+    [Header("방 참가 UI")]
+    public GameObject joinRoomInputFieldObj;
+    public GameObject joinRoomSubmitButtonObj;
+    public TMP_InputField joinRoomNameInput;
+
+    void Start()
+    {
+        if (string.IsNullOrEmpty(PhotonNetwork.NickName))
+        {
+            PhotonNetwork.NickName = "플레이어#" + Random.Range(1000, 9999);
+        }
+
+        PhotonNetwork.ConnectUsingSettings();
+        statusText.text = "서버 연결 중...";
+
+        createRoomInputFieldObj.SetActive(false);
+        createRoomSubmitButtonObj.SetActive(false);
+        joinRoomInputFieldObj.SetActive(false);
+        joinRoomSubmitButtonObj.SetActive(false);
+
+        StartCoroutine(PlayStartBGM());
+    }
+
+    private IEnumerator PlayStartBGM()
+    {
+        yield return new WaitForSeconds(1f); 
+        SoundManager.Instance.PlayBGM("BGM");
+    }
+
+    public override void OnConnectedToMaster()
+    {
+        statusText.text = "서버 연결 성공! 로비 입장 중...";
+        PhotonNetwork.JoinLobby();
+    }
+
+    public override void OnJoinedLobby()
+    {
+        statusText.text = "로비 입장 완료!";
+    }
+
+    public void ShowCreateUI()
+    {
+        createRoomInputFieldObj.SetActive(true);
+        createRoomSubmitButtonObj.SetActive(true);
+        roomNameInput.text = "";
+        roomNameInput.Select();
+    }
+
+    public void SubmitCreateRoom()
+    {
+        string roomName = roomNameInput.text;
+        if (string.IsNullOrEmpty(roomName))
+        {
+            statusText.text = "방 이름을 입력하세요!";
+            return;
+        }
+
+        RoomOptions roomOptions = new RoomOptions() { MaxPlayers = 2 };
+        PhotonNetwork.CreateRoom(roomName, roomOptions);
+        statusText.text = $"'{roomName}' 방 생성 시도 중...";
+    }
+
+    public void ShowJoinUI()
+    {
+        joinRoomInputFieldObj.SetActive(true);
+        joinRoomSubmitButtonObj.SetActive(true);
+        joinRoomNameInput.text = "";
+        joinRoomNameInput.Select();
+    }
+
+    public void SubmitJoinRoom()
+    {
+        string roomName = joinRoomNameInput.text;
+        if (string.IsNullOrEmpty(roomName))
+        {
+            statusText.text = "입장할 방 이름을 입력하세요!";
+            return;
+        }
+
+        PhotonNetwork.JoinRoom(roomName);
+        statusText.text = $"'{roomName}' 방 입장 시도 중...";
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        statusText.text = $"방 생성 실패: {message}";
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        statusText.text = $"방 입장 실패: {message}";
+    }
+
+    public override void OnJoinedRoom()
+    {
+        statusText.text = $"'{PhotonNetwork.CurrentRoom.Name}' 방 입장 완료!";
+        DontDestroyOnLoad(this.gameObject);
+        PhotonNetwork.AutomaticallySyncScene = true;
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        statusText.text = $"서버 연결 끊김: {cause}";
+    }
+}
+      </code></pre>
+    </div>
+
+    <div class="section">
+      <h2>💬 채팅 시스템 구현</h2>
+      <p><strong>ChatManager.cs</strong> 전체 코드:</p>
+      <pre><code class="language-csharp">
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using Photon.Pun;
+using Photon.Realtime;
+using System.Collections;
+using UnityEngine.EventSystems;
+
+public class ChatManager : MonoBehaviourPunCallbacks
 {
-    statusText.text = "서버 연결 성공! 로비 입장 중...";
-    PhotonNetwork.JoinLobby();
+    public TMP_InputField chatInputField;
+    public TMP_Text chatLogText;
+    public ScrollRect scrollRect;
+
+    void Start()
+    {
+        chatInputField.text = "";
+    }
+
+    public void OnClickSend()
+    {
+        string strMessage = chatInputField.text;
+
+        if (string.IsNullOrEmpty(strMessage)) 
+            return;
+
+        string strFullMessage = $"{PhotonNetwork.NickName}: {strMessage}";
+        photonView.RPC("ReceiveChatMessage", RpcTarget.All, strFullMessage);
+
+        chatInputField.text = "";
+        EventSystem.current.SetSelectedGameObject(null); 
+    }
+
+    [PunRPC]
+    void ReceiveChatMessage(string strMessage)
+    {
+        chatLogText.text += strMessage + "\n";
+        StartCoroutine(ScrollToBottomNextFrame());
+    }
+
+    IEnumerator ScrollToBottomNextFrame()
+    {
+        yield return null; 
+        Canvas.ForceUpdateCanvases();
+        scrollRect.verticalNormalizedPosition = 0f;
+    }
+
+    public bool IsChatInputFocused()
+    {
+        return EventSystem.current.currentSelectedGameObject == chatInputField.gameObject;
+    }
 }
-
-public override void OnJoinedLobby()
-{
-    statusText.text = "로비 입장 완료!";
-}
-    </code></pre>
-
-    <h2>🏠 방 생성 및 입장 처리</h2>
-    <pre><code class="language-cs">
-public void SubmitCreateRoom()
-{
-    string roomName = roomNameInput.text;
-    if (string.IsNullOrEmpty(roomName)) return;
-
-    RoomOptions roomOptions = new RoomOptions() { MaxPlayers = 2 };
-    PhotonNetwork.CreateRoom(roomName, roomOptions);
-}
-
-public void SubmitJoinRoom()
-{
-    string roomName = joinRoomNameInput.text;
-    if (string.IsNullOrEmpty(roomName)) return;
-
-    PhotonNetwork.JoinRoom(roomName);
-}
-    </code></pre>
-
-    <h2>🔄 씬 동기화 및 연결 유지</h2>
-    <pre><code class="language-cs">
-public override void OnJoinedRoom()
-{
-    DontDestroyOnLoad(this.gameObject);
-    PhotonNetwork.AutomaticallySyncScene = true;
-    SceneManager.LoadScene("GameScene");
-}
-    </code></pre>
-
-    <p class="note">
-      ☑️ 위 구조를 통해 각 유저는 같은 씬에서 실시간으로 동기화된 플레이가 가능하며,<br/>
-      Photon 오브젝트는 DontDestroyOnLoad 처리로 연결 유지가 보장됩니다.
-    </p>
+      </code></pre>
+    </div>
   </div>
-</body>
-</html>
+</section>
+
+<!-- highlight.js import -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
