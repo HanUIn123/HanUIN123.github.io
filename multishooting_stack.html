@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Photon 멀티플레이 슈팅 게임</title>
 
-  <!-- highlight.js 스타일 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
+  <!-- ✅ highlight.js 스타일 (GitHub Dark Dimmed) -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css" />
 
   <style>
     body {
@@ -221,7 +222,7 @@
 using Photon.Realtime;
 using TMPro;
 using UnityEngine;
-using System.Collections;  
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
@@ -257,7 +258,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private IEnumerator PlayStartBGM()
     {
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(1f);
         SoundManager.Instance.PlayBGM("BGM");
     }
 
@@ -376,7 +377,7 @@ public class ChatManager : MonoBehaviourPunCallbacks
         string strFullMessage = $"{PhotonNetwork.NickName}: {strMessage}";
         photonView.RPC("ReceiveChatMessage", RpcTarget.All, strFullMessage);
         chatInputField.text = "";
-        EventSystem.current.SetSelectedGameObject(null); 
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     [PunRPC]
@@ -388,7 +389,7 @@ public class ChatManager : MonoBehaviourPunCallbacks
 
     IEnumerator ScrollToBottomNextFrame()
     {
-        yield return null; 
+        yield return null;
         Canvas.ForceUpdateCanvases();
         scrollRect.verticalNormalizedPosition = 0f;
     }
@@ -401,8 +402,13 @@ public class ChatManager : MonoBehaviourPunCallbacks
     </section>
   </div>
 
-  <!-- highlight.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <!-- ✅ highlight.js 스크립트 최신 버전 & C# 언어팩 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      hljs.highlightAll();
+    });
+  </script>
 </body>
 </html>
