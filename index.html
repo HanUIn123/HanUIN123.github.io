@@ -245,23 +245,35 @@
   </section>
   </main>
 
-  <!-- JS: 페이지 전환 -->
+  <!-- JS: 페이지 전환 (디자인 유지 버전) -->
   <script>
-    function loadPage(page) {
-      document.body.style.opacity = 0;
-      fetch(page)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(html, 'text/html');
-          const newBody = doc.body.innerHTML;
-          document.body.innerHTML = newBody;
+  function loadPage(page) {
+    document.body.style.opacity = 0;
 
-          window.scrollTo(0, 0);
-          document.body.style.opacity = 1;
-        })
-        .catch(err => console.error("페이지 로드 실패:", err));
-    }
+    fetch(page)
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // ✅ <head>의 CSS, JS까지 함께 복사 (디자인 유지)
+        document.head.innerHTML = doc.head.innerHTML;
+
+        // ✅ <body> 교체
+        document.body.innerHTML = doc.body.innerHTML;
+
+        // 전환 효과
+        window.scrollTo(0, 0);
+        setTimeout(() => { document.body.style.opacity = 1; }, 100);
+
+        // highlight.js 다시 실행
+        const script = document.createElement('script');
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
+        document.body.appendChild(script);
+      })
+      .catch(err => console.error("페이지 로드 실패:", err));
+  }
   </script>
 </body>
 </html>
+
