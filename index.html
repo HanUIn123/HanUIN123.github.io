@@ -294,7 +294,7 @@
   <!-- JS: 페이지 전환 (디자인 유지 버전) -->
   <script>
   function loadPage(page) {
-   document.body.style.opacity = 0;
+    document.body.style.opacity = 0;
 
   fetch(page)
     .then(res => res.text())
@@ -302,10 +302,10 @@
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
 
-      // ✅ 기존 head 유지 (여기 수정)
-      const newMain = doc.querySelector('main');
-      if (newMain) {
-        document.querySelector('main#content').innerHTML = newMain.innerHTML;
+      // ✅ <body> 내용 통째로 가져오기
+      const newBody = doc.querySelector('body');
+      if (newBody) {
+        document.querySelector('main#content').innerHTML = newBody.innerHTML;
       }
 
       window.scrollTo(0, 0);
@@ -317,6 +317,7 @@
       script.onload = () => {
         const langScript = document.createElement('script');
         langScript.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js";
+        langScript.onload = () => hljs.highlightAll();
         document.body.appendChild(langScript);
       };
       document.body.appendChild(script);
