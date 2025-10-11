@@ -294,30 +294,34 @@
   <!-- JS: 페이지 전환 (디자인 유지 버전) -->
   <script>
   function loadPage(page) {
-    document.body.style.opacity = 0;
+   document.body.style.opacity = 0;
 
-    fetch(page)
-      .then(res => res.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
+  fetch(page)
+    .then(res => res.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
 
-        // ✅ <head>의 CSS, JS까지 함께 복사 (디자인 유지)
-        document.head.innerHTML = doc.head.innerHTML;
+      // ✅ 기존 head 유지 (여기 수정)
+      const newMain = doc.querySelector('main');
+      if (newMain) {
+        document.querySelector('main#content').innerHTML = newMain.innerHTML;
+      }
 
-        // ✅ <body> 교체
-        document.body.innerHTML = doc.body.innerHTML;
+      window.scrollTo(0, 0);
+      setTimeout(() => { document.body.style.opacity = 1; }, 100);
 
-        // 전환 효과
-        window.scrollTo(0, 0);
-        setTimeout(() => { document.body.style.opacity = 1; }, 100);
-
-        // highlight.js 다시 실행
-        const script = document.createElement('script');
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
-        document.body.appendChild(script);
-      })
-      .catch(err => console.error("페이지 로드 실패:", err));
+      // ✅ highlight.js 다시 실행
+      const script = document.createElement('script');
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
+      script.onload = () => {
+        const langScript = document.createElement('script');
+        langScript.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js";
+        document.body.appendChild(langScript);
+      };
+      document.body.appendChild(script);
+    })
+    .catch(err => console.error("페이지 로드 실패:", err));
   }
   </script>
 </body>
