@@ -342,8 +342,128 @@
       </div>
     </section>
   </div>
+    <!-- 3페이지 -->
+  <div class="page">
+    <div class="project-header">
+      <h2>Unity 멀티 슈팅 게임 (PUN2 기반 2D 프로젝트)</h2>
+      <span class="project-meta">개발 기간: 2025.04 ~ 2025.06 | 상태: 완료</span>
+    </div>
+
+    <section class="section">
+      <h2>개요</h2>
+      <div class="intro-box">
+        <ul>
+          <li>Photon PUN2 네트워크 환경에서 동작하는 2D 멀티 슈팅 게임입니다.</li>
+          <li>최대 4명이 같은 방에 접속하여 동시에 플레이 가능하며, 실시간 채팅, 보스전, 궁극기 연출이 포함된 개인 프로젝트입니다.</li>
+          <li><b>Unity / C# / Photon PUN2</b> 기반으로 제작하였습니다.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>개발 환경</h2>
+      <div class="intro-box">
+        <ul>
+          <li>언어: C#</li>
+          <li>도구: Unity 2025, Visual Studio 2022</li>
+          <li>네트워크: Photon PUN2</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>시연 영상</h2>
+      <div class="intro-box">
+        🎥 <a href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">Multi Shooting 시연 영상</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>주요 구현 기능</h2>
+
+      <div class="intro-box">
+        <h3>1. 네트워크 시스템 (Photon PUN2)</h3>
+        <ul>
+          <li>방 생성 / 참가 / 퇴장 기능 구현</li>
+          <li>PhotonNetwork.Instantiate로 플레이어, 총알, 보스 오브젝트 네트워크 동기화</li>
+          <li>RPC 호출을 통해 보스 HP 및 채팅 메시지 동기화</li>
+        </ul>
+        <div class="gif-row">
+          <img src="Unity_Shorts/JoinRoom.gif" alt="Room Join" />
+        </div>
+      </div>
+
+      <div class="intro-box">
+        <h3>2. 채팅 시스템</h3>
+        <ul>
+          <li>TMP_InputField + ScrollRect 기반의 실시간 채팅창 구현</li>
+          <li>photonView.RPC()를 통한 메시지 전송 / 수신</li>
+          <li>입력창 포커스 시 캐릭터 조작 입력 비활성화 처리</li>
+        </ul>
+        <div class="gif-row">
+          <img src="Unity_Shorts/Chatting2.gif" alt="Chatting System" />
+        </div>
+      </div>
+
+      <div class="intro-box">
+        <h3>3. 플레이어 컨트롤</h3>
+        <ul>
+          <li>Unity New Input System 기반 이동, 공격, 궁극기 구현</li>
+          <li>총알 발사 딜레이 및 사운드 효과 적용</li>
+          <li>궁극기: 게이지 충전 → 컷인 이미지 연출 → 불꽃 광역 스킬</li>
+        </ul>
+      </div>
+
+      <div class="intro-box">
+        <h3>4. 보스전 시스템</h3>
+        <ul>
+          <li>스테이지 진행도 100% 시 보스 출몰 경고 UI 표시</li>
+          <li>보스 HP UI 활성화 및 3종 공격 패턴 (원형/나선/샷건)</li>
+          <li>피격 시 "Hit Flash Shader"로 반짝이는 효과 적용</li>
+        </ul>
+      </div>
+
+      <div class="intro-box">
+        <h3>5. UI 및 시각적 연출</h3>
+        <ul>
+          <li>궁극기 컷인은 우상단 → 중앙 슬라이드 + 흔들림 연출</li>
+          <li>Hit Flash Shader: _WhiteAmount 기반 점멸</li>
+          <li>Laser Shader: 노이즈 기반 흔들림 + 발광 효과</li>
+          <li>보스 출몰 경고 UI: setActive 주기 반복 점멸 처리</li>
+          <li>UI 바(Image Fill): 스테이지 진행도 / 체력바 실시간 업데이트</li>
+        </ul>
+        <div class="gif-row">
+          <img src="Unity_Shorts/Ultimate.gif" alt="Ultimate Skill" />
+          <img src="Unity_Shorts/Boss.gif" alt="Boss Battle" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>핵심 요약</h2>
+      <div class="intro-box">
+        <ul>
+          <li>Photon PUN2 네트워크 시스템 구현 (방 생성, 오브젝트 동기화, RPC 통신)</li>
+          <li>TMP 기반 실시간 채팅 시스템 제작</li>
+          <li>플레이어 조작, 몬스터 AI, Boss AI 및 탄막 패턴 구현</li>
+          <li>스테이지 진행도 UI 및 보스 소환 / 경고 연출 구현</li>
+          <li>Shader 활용: 레이저 흔들림 / 피격 점멸 / 궁극기 컷인 효과</li>
+        </ul>
+      </div>
+
+      <div class="tag-row">
+        <div class="tag">C#</div>
+        <div class="tag">Unity</div>
+        <div class="tag">Photon PUN2</div>
+        <div class="tag">Shader</div>
+        <div class="tag">UI System</div>
+      </div>
+    </section>
+  </div>
+
 </body>
 </html>
+
 
 
 
