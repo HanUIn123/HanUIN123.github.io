@@ -381,30 +381,37 @@
     <section class="section">
       <h2>주요 구현 기능</h2>
 
-      <div class="intro-box">
-        <h3>1. 네트워크 시스템 (Photon PUN2)</h3>
-        <ul>
-          <li>방 생성 / 참가 / 퇴장 기능 구현</li>
-          <li>PhotonNetwork.Instantiate로 플레이어, 총알, 보스 오브젝트 네트워크 동기화</li>
-          <li>RPC 호출을 통해 보스 HP 및 채팅 메시지 동기화</li>
-        </ul>
-        <div class="gif-row">
+      <!-- 1. 네트워크 시스템 -->
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>1. 네트워크 시스템 (Photon PUN2)</h3>
+          <ul>
+            <li>방 생성 / 참가 / 퇴장 기능 구현</li>
+            <li>PhotonNetwork.Instantiate로 플레이어, 총알, 보스 오브젝트 네트워크 동기화</li>
+            <li>RPC 호출을 통해 보스 HP 및 채팅 메시지 동기화</li>
+          </ul>
+        </div>
+        <div class="feature-gif">
           <img src="Unity_Shorts/JoinRoom.gif" alt="Room Join" />
         </div>
       </div>
 
-      <div class="intro-box">
-        <h3>2. 채팅 시스템</h3>
-        <ul>
-          <li>TMP_InputField + ScrollRect 기반의 실시간 채팅창 구현</li>
-          <li>photonView.RPC()를 통한 메시지 전송 / 수신</li>
-          <li>입력창 포커스 시 캐릭터 조작 입력 비활성화 처리</li>
-        </ul>
-        <div class="gif-row">
-          <img src="Unity_Shorts/Chatting2.gif" alt="Chatting System" />
+      <!-- 2. 채팅 시스템 -->
+      <div class="feature-box">
+        <div class="feature-text">
+          <h3>2. 채팅 시스템</h3>
+          <ul>
+            <li>TMP_InputField + ScrollRect 기반의 실시간 채팅창 구현</li>
+            <li>photonView.RPC()를 통한 메시지 전송 / 수신</li>
+            <li>입력창 포커스 시 캐릭터 조작 입력 비활성화 처리</li>
+          </ul>
+        </div>
+        <div class="feature-gif">
+          <img src="Unity_Shorts/Chatting.gif" alt="Chatting System" />
         </div>
       </div>
 
+      <!-- 3. 플레이어 컨트롤 -->
       <div class="intro-box">
         <h3>3. 플레이어 컨트롤</h3>
         <ul>
@@ -414,6 +421,7 @@
         </ul>
       </div>
 
+      <!-- 4. 보스전 시스템 -->
       <div class="intro-box">
         <h3>4. 보스전 시스템</h3>
         <ul>
@@ -423,6 +431,7 @@
         </ul>
       </div>
 
+      <!-- 5. UI 및 시각적 연출 -->
       <div class="intro-box">
         <h3>5. UI 및 시각적 연출</h3>
         <ul>
@@ -460,9 +469,9 @@
       </div>
     </section>
   </div>
-
 </body>
 </html>
+
 
 
 
