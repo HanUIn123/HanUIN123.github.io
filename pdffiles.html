@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>한유인 - PDF 포트폴리오</title>
+  <style>
+    body {
+      background:#f0f2f5;
+      font-family: 'Arial', sans-serif;
+      margin:0;
+      padding:20px;
+    }
+
+    .page {
+      background:#fff;
+      max-width:800px;
+      margin:20px auto;
+      padding:40px;
+      border-radius:10px;
+      box-shadow:0 4px 10px rgba(0,0,0,.1);
+    }
+
+    .header h1 {
+      text-align:center;
+      margin:0;
+      font-size:30px;
+      font-weight:bold;
+    }
+    .header .role {
+      text-align:center;
+      font-size:18px;
+      margin:5px 0 15px;
+      color:#555;
+    }
+    .header .links {
+      text-align:center;
+      margin-bottom:30px;
+    }
+    .header .links a {
+      margin:0 10px;
+      color:#2c3e50;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    .header .links a:hover { text-decoration:underline; }
+
+    .section { margin-bottom:30px; }
+    .section h2 {
+      font-size:20px;
+      margin-bottom:12px;
+      color:#6a4c93;
+      border-bottom:2px solid #6a4c93;
+      display:inline-block;
+      padding-bottom:4px;
+    }
+
+    .intro-box {
+      background:#f7fbff;
+      border:1px solid #cce7ff;
+      padding:15px;
+      border-radius:8px;
+      line-height:1.6;
+    }
+
+    .grid-2 {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+    .card {
+      background:#f0f8ff;
+      padding:15px;
+      border-radius:8px;
+      border:1px solid #cce7ff;
+      text-align:center;
+      font-size:14px;
+      font-weight:bold;
+      box-shadow:0 2px 5px rgba(0,0,0,.05);
+    }
+
+    .grid-4 {
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:16px;
+    }
+    .stack-card {
+      background:#f0f8ff;
+      padding:12px;
+      border:1px solid #cce7ff;
+      border-radius:8px;
+      text-align:center;
+      box-shadow:0 2px 5px rgba(0,0,0,.05);
+    }
+    .stack-card h3 {
+      margin:0 0 8px;
+      color:#6a4c93;
+      font-size:15px;
+    }
+
+    .gif-row {
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .gif-row img {
+      max-width:220px;
+      border-radius:6px;
+      border:1px solid #ddd;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+
+    .feature-box {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      background:#f7fbff;
+      border:1px solid #cce7ff;
+      border-radius:8px;
+      padding:15px;
+      margin-bottom:20px;
+    }
+    .feature-text { flex:1; }
+    .feature-gif { flex:1; text-align:center; }
+    .feature-gif img {
+      max-width:100%;
+      border-radius:8px;
+      border:1px solid #ddd;
+      box-shadow:0 2px 6px rgba(0,0,0,.1);
+    }
+
+    .project-header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+    }
+    .project-meta {
+      color:#555;
+      font-size:14px;
+    }
+
+    .tag-row {
+      margin-top:15px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag {
+      background:#d6eaff;
+      border:1px solid #cce0ff;
+      padding:6px 14px;
+      border-radius:20px;
+      font-size:13px;
+      font-weight:bold;
+      color:#004080;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 여기에 삽입될 실제 콘텐츠 시작 -->
+<!-- ======================== -->
+<!-- 아래에 .page 단위 전체 코드 삽입 -->
+<!-- ======================== -->
+
+<!-- ⚠️ 여기에 실제 사용자가 작성한 .page 들을 그대로 붙여넣음 -->
+<!-- 지금 네가 위에서 줬던 코드는 너무 길어서 여기에 다시 안 적고 -->
+<!-- .page 구조 전부 유지해서 영상 iframe → 썸네일 링크로 바꾼 버전 만들어서 이어서 바로 줄게 -->
+
+<!-- 이어서 다음 메시지에 .page 전체 복원된 구조 삽입해줄게 -->
+
+<!-- 1페이지 -->
+<div class="page">
+  <div class="header">
+    <h1>한유인</h1>
+    <p class="role">게임 클라이언트 개발자</p>
+    <div class="links">
+      📱 <a href="tel:010-8721-1493">010-8721-1493</a> ·
+      ✉️ <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a> ·
+      💻 <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> ·
+      📒 <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion</a>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2>자기소개</h2>
+    <div class="intro-box">
+      <p>
+        C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다. 
+        Unity 엔진을 활용한 멀티 슈팅 게임과 DirectX 기반 개인 프로젝트를 통해 
+        실시간 그래픽스와 네트워크 시스템 구축 경험을 쌓았습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>핵심 역량</h2>
+    <div class="grid-2">
+      <div class="card">🎨 게임 그래픽스<br/>DirectX9~11, HLSL Shader</div>
+      <div class="card">🌐 네트워크<br/>Photon PUN2 멀티플레이</div>
+      <div class="card">⚙️ 게임 시스템<br/>맵툴, Navigation, Item System</div>
+      <div class="card">🛠 엔진 활용<br/>Unity, Unreal Engine</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>기술 스택</h2>
+    <div class="grid-4">
+      <div class="stack-card"><h3>언어</h3><p>C, C++</p></div>
+      <div class="stack-card"><h3>그래픽스</h3><p>DirectX9~11, HLSL</p></div>
+      <div class="stack-card"><h3>엔진</h3><p>Unity, Unreal Engine</p></div>
+      <div class="stack-card"><h3>도구</h3><p>Git, Photoshop</p></div>
+    </div>
+  </section>
+</div>
+
+
+<!-- 2페이지: Thymesia -->
+<div class="page">
+  <div class="project-header">
+    <h2>Thymesia (DirectX11 3D) - 팀 프로젝트</h2>
+    <span class="project-meta">개발 기간: 2024.03 ~ 2024.07 | 상태: 완료</span>
+  </div>
+
+  <section class="section">
+    <h2>개요</h2>
+    <div class="intro-box">
+      <ul>
+        <li>액션 중심 다크 소울류 3D 팀 프로젝트 (팀원 6명 참여)</li>
+        <li><b>맵툴 / 네비게이션 / 연출 / 상호작용 / 인스턴싱 / 아이템 시스템</b> 담당</li>
+        <li>C++ / DirectX11 / HLSL / ImGui / 자체 엔진 활용</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>개발 환경</h2>
+    <div class="intro-box">
+      <ul>
+        <li>언어: C++</li>
+        <li>도구: Visual Studio, DirectX11, HLSL, ImGui, Fmod</li>
+      </ul>
+    </div>
+  </section>
+
+ <section class="section">
+  <h2>시연 영상</h2>
+  <div class="intro-box" style="text-align:center;">
+    <!-- 🎮 Thymesia 시연 영상 썸네일 -->
+    <a href="https://www.youtube.com/watch?v=T3UJbHMiLYw" target="_blank">
+      <img src="Images/1.png" alt="Thymesia 팀 포트폴리오 시연 썸네일"
+           style="max-width:720px; border-radius:8px; border:1px solid #ccc;">
+    </a>
+    <p style="margin-top:10px; font-size:14px; color:#666;">
+      🎮 Thymesia 팀 프로젝트 플레이 영상 (유튜브로 이동)
+    </p>
+
+    <!-- 🛠️ Thymesia 맵툴 시연 영상은 일단 제거되어 있음, 필요시 추가 -->
+  </div>
+</section>
+
+
+  <section class="section">
+    <h2>문서 링크</h2>
+    <div class="intro-box">
+      💻 <a href="https://github.com/HanUIn123" target="_blank">GitHub</a> /
+      📄 <a href="tymesia_stack.pdf" target="_blank">기술소개서 PDF</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>주요 구현 기능</h2>
+    <!-- 각 기능 박스 생략 없이 다 포함 → 다음 메시지에서 이어서 보낼게 (3페이지 Unity 포함해서) -->
+  </section>
+</div>
+
+<!-- Thymesia 주요 구현 기능 + 최적화 -->
+<section class="section">
+  <h2>주요 구현 기능</h2>
+
+  <div class="intro-box">
+    <h3>1. Navigation 시스템</h3>
+    <ul>
+      <li>픽셀 피킹 기반 셀 생성 및 월드 좌표 변환</li>
+      <li>정점 시계방향 교정, 인접 관계/경계선 판정</li>
+      <li>Navigation Cell 내부 이동 제한, 층간 이동(y값 보정)</li>
+    </ul>
+  </div>
+
+  <div class="intro-box">
+    <h3>2. Geometry Shader 연출</h3>
+    <ul>
+      <li>Idle 상태 포자 꿈틀거림 (사인파 진동)</li>
+      <li>피격 시 파편화 (난수 + 로드리게스 회전)</li>
+      <li>돌 파편 원형 퍼짐 + 중력 낙하</li>
+    </ul>
+    <div class="gif-row">
+      <img src="Shorts/Splatting.gif" alt="Splatting" />
+      <img src="Shorts/RockSplatting.gif" alt="Rock Splatting" />
+      <img src="Shorts/SporeMoving.gif" alt="Spore Moving" />
+    </div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-text">
+      <h3>3. Item 시스템</h3>
+      <ul>
+        <li>아이템 등록/드롭/획득/복원 관리</li>
+        <li>베지어 곡선 기반 아이템 드롭 궤적</li>
+        <li>UV 흔들림 + 팽창/수축 애니메이션</li>
+      </ul>
+    </div>
+    <div class="feature-gif">
+      <img src="Shorts/Item.gif" alt="아이템 시스템" />
+    </div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-text">
+      <h3>4. 상호작용 시스템</h3>
+      <ul>
+        <li>림라이트 셰이더로 상호작용 오브젝트 강조</li>
+        <li>Lock-On 시스템 (UV 흐름, 연결 라인)</li>
+        <li>상호작용 UI 버튼 (HUD 위치 변환)</li>
+      </ul>
+    </div>
+    <div class="feature-gif">
+      <img src="Shorts/LockLine.gif" alt="상호작용 시스템" />
+    </div>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-text">
+      <h3>5. 메쉬 인스턴싱 + 컬링 최적화</h3>
+      <ul>
+        <li>인스턴싱 전용 오브젝트 클래스 설계</li>
+        <li>DrawIndexedInstanced() 기반 GPU 렌더링 최적화</li>
+        <li>CPU 프러스텀 컬링 (AABB vs 카메라 절두체 검사)</li>
+      </ul>
+    </div>
+    <div class="feature-gif">
+      <img src="Shorts/culling.gif" alt="프러스텀 컬링" />
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>최적화 사례</h2>
+  <div class="intro-box">
+    <ul>
+      <li> 네비게이션 메쉬를 직접 생성하여 플레이어/몬스터가 벽·지형과 불필요한 충돌 검사를 하지 않도록 최적화</li>
+      <li> 메쉬 인스턴싱으로 수백 개의 동일 지형 드로우콜을 줄여 GPU 렌더링 효율 향상</li>
+      <li> 프러스텀 컬링으로 카메라 밖 오브젝트를 제거하여 CPU/GPU 불필요한 연산 감소</li>
+    </ul>
+  </div>
+  <div class="tag-row">
+    <div class="tag">C++</div>
+    <div class="tag">DirectX11</div>
+    <div class="tag">HLSL</div>
+    <div class="tag">ImGui</div>
+    <div class="tag">Fmod</div>
+  </div>
+</section>
+</div>
+
+
+<!-- 3페이지: Unity 멀티 슈팅 게임 -->
+<div class="page">
+  <div class="project-header">
+    <h2>Unity 멀티 슈팅 게임 (PUN2 기반 2D 프로젝트)</h2>
+    <span class="project-meta">개발 기간: 2025.04 ~ 2025.06 | 상태: 완료</span>
+  </div>
+
+  <section class="section">
+    <h2>개요</h2>
+    <div class="intro-box">
+      <ul>
+        <li>Photon PUN2 네트워크 환경에서 동작하는 2D 멀티 슈팅 게임입니다.</li>
+        <li>최대 4명이 같은 방에 접속하여 동시에 플레이 가능하며, 실시간 채팅, 보스전, 궁극기 연출이 포함된 개인 프로젝트입니다.</li>
+        <li><b>Unity / C# / Photon PUN2</b> 기반으로 제작하였습니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>개발 환경</h2>
+    <div class="intro-box">
+      <ul>
+        <li>언어: C#</li>
+        <li>도구: Unity 2025, Visual Studio 2022</li>
+        <li>네트워크: Photon PUN2</li>
+      </ul>
+    </div>
+  </section>
+
+<section class="section">
+  <h2>시연 영상</h2>
+  <div class="intro-box" style="text-align:center;">
+    <!-- 🎮 Unity 멀티슈팅 시연 영상 썸네일 -->
+    <a href="https://www.youtube.com/watch?v=GfsnSsfmI04" target="_blank">
+      <img src="Images/2.png" alt="Unity 멀티슈팅 시연 썸네일"
+           style="max-width:720px; border-radius:8px; border:1px solid #ccc;">
+    </a>
+    <p style="margin-top:10px; font-size:14px; color:#666;">
+      🎮 Multi Shooting PUN2 멀티플레이 시연 영상 (유튜브로 이동)
+    </p>
+  </div>
+</section>
+
+  <section class="section">
+    <h2>문서 링크</h2>
+    <div class="intro-box">
+      📄 <a href="https://hanuin123.github.io/multishooting_stack.html" target="_blank">자세히 보기 PDF</a> /
+      💻 <a href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">GitHub</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>주요 구현 기능</h2>
+
+    <div class="feature-box">
+      <div class="feature-text">
+        <h3>1. 네트워크 시스템 (Photon PUN2)</h3>
+        <ul>
+          <li>방 생성 / 참가 / 퇴장 기능 구현</li>
+          <li>PhotonNetwork.Instantiate로 플레이어, 총알, 보스 오브젝트 네트워크 동기화</li>
+          <li>RPC 호출을 통해 보스 HP 및 채팅 메시지 동기화</li>
+        </ul>
+      </div>
+      <div class="feature-gif">
+        <img src="Unity_Shorts/JoinRoom.gif" alt="Room Join" />
+      </div>
+    </div>
+
+    <div class="feature-box">
+      <div class="feature-text">
+        <h3>2. 채팅 시스템</h3>
+        <ul>
+          <li>TMP_InputField + ScrollRect 기반의 실시간 채팅창 구현</li>
+          <li>photonView.RPC()를 통한 메시지 전송 / 수신</li>
+          <li>입력창 포커스 시 캐릭터 조작 입력 비활성화 처리</li>
+        </ul>
+      </div>
+      <div class="feature-gif">
+        <img src="Unity_Shorts/Chatting.gif" alt="Chatting System" />
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <h3>3. 플레이어 컨트롤</h3>
+      <ul>
+        <li>Unity New Input System 기반 이동, 공격, 궁극기 구현</li>
+        <li>총알 발사 딜레이 및 사운드 효과 적용</li>
+        <li>궁극기: 게이지 충전 → 컷인 이미지 연출 → 불꽃 광역 스킬</li>
+      </ul>
+    </div>
+
+    <div class="intro-box">
+      <h3>4. 보스전 시스템</h3>
+      <ul>
+        <li>스테이지 진행도 100% 시 보스 출몰 경고 UI 표시</li>
+        <li>보스 HP UI 활성화 및 3종 공격 패턴 (원형/나선/샷건)</li>
+        <li>피격 시 "Hit Flash Shader"로 반짝이는 효과 적용</li>
+      </ul>
+    </div>
+
+    <div class="intro-box">
+      <h3>5. UI 및 시각적 연출</h3>
+      <ul>
+        <li>궁극기 컷인은 우상단 → 중앙 슬라이드 + 흔들림 연출</li>
+        <li>Hit Flash Shader: _WhiteAmount 기반 점멸</li>
+        <li>Laser Shader: 노이즈 기반 흔들림 + 발광 효과</li>
+        <li>보스 출몰 경고 UI: setActive 주기 반복 점멸 처리</li>
+        <li>UI 바(Image Fill): 스테이지 진행도 / 체력바 실시간 업데이트</li>
+      </ul>
+      <div class="gif-row">
+        <img src="Unity_Shorts/Ultimate.gif" alt="Ultimate Skill" />
+        <img src="Unity_Shorts/Boss.gif" alt="Boss Battle" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>핵심 요약</h2>
+    <div class="intro-box">
+      <ul>
+        <li>Photon PUN2 네트워크 시스템 구현 (방 생성, 오브젝트 동기화, RPC 통신)</li>
+        <li>TMP 기반 실시간 채팅 시스템 제작</li>
+        <li>플레이어 조작, 몬스터 AI, Boss AI 및 탄막 패턴 구현</li>
+        <li>스테이지 진행도 UI 및 보스 소환 / 경고 연출 구현</li>
+        <li>Shader 활용: 레이저 흔들림 / 피격 점멸 / 궁극기 컷인 효과</li>
+      </ul>
+    </div>
+
+    <div class="tag-row">
+      <div class="tag">C#</div>
+      <div class="tag">Unity</div>
+      <div class="tag">Photon PUN2</div>
+      <div class="tag">Shader</div>
+      <div class="tag">UI System</div>
+    </div>
+  </section>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
