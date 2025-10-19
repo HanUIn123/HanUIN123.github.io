@@ -1,10 +1,7 @@
 <main>
   <!-- ✅ 메인 페이지 상단 네비게이션 바 복사 -->
 <nav class="global-nav">
-  <a href="./index.html#about">소개</a>
-  <a href="./index.html#projects">프로젝트</a>
-  <a href="./index.html#skills">기술스택</a>
-  <a href="./index.html#contact">연락처</a>
+ <a href="index.html" class="back-main">메인으로</a>
 </nav>
   <style>
         /* ---------- NAV ---------- */
@@ -18,7 +15,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      padding: 0 350px; /* 오른쪽 정렬 여백 조절 */
+      padding: 0 300px; /* 오른쪽 정렬 여백 조절 */
       z-index: 10000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     }
@@ -395,17 +392,8 @@ public class ChatManager : MonoBehaviourPunCallbacks
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", () => hljs.highlightAll());</script>
 
-    <!-- ✅ 여기에 바로 아래 코드 추가 -->
-  <script>
-  document.querySelectorAll('.global-nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault(); // 기본 anchor 동작 막기
-      const target = link.getAttribute('href');
-      window.location.href = target; // index.html로 강제 이동
-    });
-  });
-  </script>
 </main>
+
 
 
 
