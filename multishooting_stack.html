@@ -1,10 +1,45 @@
 <main>
+  <!-- ✅ 메인 페이지 상단 네비게이션 바 복사 -->
+<nav class="global-nav">
+  <a href="index.html#about">소개</a>
+  <a href="index.html#projects">프로젝트</a>
+  <a href="index.html#skills">기술스택</a>
+  <a href="index.html#contact">연락처</a>
+</nav>
   <style>
+        /* ---------- NAV ---------- */
+    .global-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 56px;
+      background: #6a4c93;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 300px; /* 오른쪽 정렬 여백 조절 */
+      z-index: 10000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .global-nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 18px;
+      transition: color 0.2s;
+    }
+
+    .global-nav a:hover {
+      color: #dcd3f7;
+    }
+
     body {
       font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
       background-color: #f9fafc;
       margin: 0;
-      padding: 0;
+       0;
       color: #333;
       line-height: 1.7;
     }
@@ -12,7 +47,7 @@
     .header {
       background: linear-gradient(135deg, #5d4bff, #8f6eff);
       color: white;
-      padding: 80px 20px 100px;
+     padding: 120px 20px 100px; /* nav 가리지 않도록 위쪽 여백 증가 */
       text-align: center;
       position: relative;
     }
@@ -35,7 +70,7 @@
       display: inline-block;
       background: rgba(255,255,255,0.15);
       border-radius: 8px;
-      padding: 6px 14px;
+       6px 14px;
       margin: 4px;
       font-size: 14px;
     }
@@ -49,28 +84,23 @@
       border-radius: 8px;
       color: white;
       font-weight: bold;
-      padding: 8px 14px;
+       8px 14px;
       font-size: 14px;
       text-decoration: none;
       transition: 0.2s ease;
     }
 
-    .back-btn:hover {
-      background: white;
-      color: #5d4bff;
-    }
-
     .container {
       max-width: 1000px;
       margin: -60px auto 80px;
-      padding: 0 20px;
+       0 20px;
     }
 
     section {
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 40px 50px;
+       40px 50px;
       margin-bottom: 40px;
     }
 
@@ -90,7 +120,7 @@
     .feature-card {
       background: #fff;
       border-radius: 12px;
-      padding: 20px;
+       20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       transition: 0.3s;
     }
@@ -108,7 +138,7 @@
 
     .flow-item {
       background: #f3f5ff;
-      padding: 15px 20px;
+       15px 20px;
       border-radius: 10px;
       margin-bottom: 10px;
     }
@@ -134,7 +164,6 @@
 
   <!-- 헤더 -->
   <div class="header">
-    <a href="index.html" class="back-btn">메인으로</a>
     <h1>Photon 멀티플레이 슈팅 게임</h1>
     <p>Photon PUN2 기반의 네트워크 연결, 채팅, 보스 공격 패턴, 탄막 등을 구현한 2D 멀티플레이 슈팅 게임입니다.</p>
     <div class="tag-container">
@@ -366,4 +395,5 @@ public class ChatManager : MonoBehaviourPunCallbacks
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", () => hljs.highlightAll());</script>
 </main>
+
 
