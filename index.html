@@ -62,64 +62,83 @@
     .btn-green{ background:var(--green) }
 
     .hero-photo{
-   width: 220px;                 /* 🔹 가로 조금 늘림 */
-  height: auto;                 /* 🔹 세로 비율 자동 */
-  aspect-ratio: auto;           /* 🔹 브라우저가 원본 비율 유지 */
-  border-radius: 22px;
-  border: 4px solid #fff;
-  object-fit: contain;          /* 🔹 사진 짤림 방지 (공백 허용) */
-  box-shadow: 0 6px 16px rgba(0,0,0,.25);
-  background: #ddd;
+      width:220px;
+      height:220px;
+      border-radius:22px;
+      border:4px solid #fff;
+      object-fit:contain;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
+      background:#ddd;
     }
 
     /* ---------- SECTIONS ---------- */
     .section{
-      max-width:1100px; margin:42px auto; padding:28px;
-      background:var(--card); border-radius:14px; box-shadow:var(--shadow);
-    }
-   /* 섹션 제목(h2)만 가운데 정렬 */
-    .section h2 {
-      width: 220px;
-      height: 220px;             /* ✅ 정사각형 박스 유지 */
-      border-radius: 22px;
-      border: 4px solid #fff;
-      object-fit: contain;       /* ✅ 원본 비율 유지하면서 짤리지 않게 */
-      box-shadow: 0 6px 16px rgba(0,0,0,.25);
-      background: #ddd;
+      max-width:1100px;
+      margin:42px auto;
+      padding:28px;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:var(--shadow);
+      text-align:center;
     }
 
+    .section h2 {
+      display:inline-block;
+      border-bottom:2px solid var(--purple);
+      color:var(--purple);
+      margin:0 auto 18px;
+      padding-bottom:6px;
+      width:auto;
+    }
 
     /* 소개 좌/우 */
     .about-wrap{ 
-      display:flex; gap:60px; align-items:flex-start; 
+      display:flex;
+      gap:60px;
+      align-items:flex-start;
       justify-content:space-between;
+      text-align:left;
     }
     .about-left{ flex:1.6 }
     .about-right{ flex:1; font-size:14px }
     .about-left h3{ margin:2px 0 10px }
-    .about-left p{ line-height:1.6; margin:6px 0 14px }
- display: block;
-  margin: 40px auto 0;      /* 🔹 위 여백 + 섹션 기준 가운데 정렬 */
-  text-align: center;
-  width: fit-content;
-}
+    .about-left p{ line-height:1.6; margin:6px 0 14px; }
+
+    .about-button {
+      display:block;
+      margin:40px auto 0;
+      text-align:center;
+      width:fit-content;
+    }
 
     /* ---------- PROJECTS ---------- */
     .row{
-      display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
     }
     .row-2 .project-card{ flex:0 1 320px; }
     .row-3 .project-card{ flex:0 1 320px; }
 
     .project-card{
-      background:#fdfdfd; border-radius:12px; padding:18px;
+      background:#fdfdfd;
+      border-radius:12px;
+      padding:18px;
       box-shadow:0 2px 6px rgba(0,0,0,.15);
-      display:flex; flex-direction:column;
-      width:100%; max-width:320px;
+      display:flex;
+      flex-direction:column;
+      width:100%;
+      max-width:320px;
     }
     .project-thumb{
-      width:100%; height:170px; object-fit:cover; border-radius:8px;
-      margin-bottom:10px; background:#ddd;
+      width:100%;
+      height:170px;
+      object-fit:cover;
+      border-radius:8px;
+      margin-bottom:10px;
+      background:#ddd;
     }
     .project-card h3{ margin:6px 0 6px; font-size:18px }
     .project-card p{ margin:0 0 10px; color:#555 }
@@ -130,16 +149,28 @@
     .btn-violet-sm{ background:var(--violet) }
 
     .btn-sm{
-      flex:1; display:inline-flex; align-items:center; justify-content:center;
-      padding:8px 12px; border-radius:8px; color:#fff; text-decoration:none;
-      font-weight:bold; font-size:14px; box-shadow:0 2px 6px rgba(0,0,0,.14);
+      flex:1;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 12px;
+      border-radius:8px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:14px;
+      box-shadow:0 2px 6px rgba(0,0,0,.14);
       transition:transform .12s ease, filter .12s ease;
-      white-space:nowrap; min-width:95px;
+      white-space:nowrap;
+      min-width:95px;
     }
     .btn-sm:hover{ transform:translateY(-1px); filter:brightness(.95) }
 
     .btn-icon{
-      width:18px; height:18px; margin-right:6px; vertical-align:middle;
+      width:18px;
+      height:18px;
+      margin-right:6px;
+      vertical-align:middle;
     }
 
     /* ---------- SKILLS & CONTACT ---------- */
@@ -150,14 +181,14 @@
     @media (max-width:720px){
       .header-inner{ flex-direction:column; text-align:center; gap:20px }
       .hero-actions{ justify-content:center }
-      .about-wrap{ flex-direction:column }
+      .about-wrap{ flex-direction:column; text-align:center }
       .row{ flex-direction:column; align-items:center }
     }
   </style>
 </head>
 
 <body>
-  <main id="content"><!-- 모든 내용은 이 안에 들어감 -->
+  <main id="content">
 
   <!-- HEADER -->
   <header>
@@ -194,8 +225,8 @@
           Unreal 엔진으로도 개발 경험을 넓혀가고 있습니다.
         </p>
         <p><b>주요 기술</b><br />C, C++, WinAPI, DirectX9~11, HLSL, Unity, Unreal Engine</p>
-     
       </div>
+
       <div class="about-right">
         <b>학력</b>
         <ul>
@@ -206,98 +237,94 @@
           <li>2019.09 ~ 2019.12 : (전공 활동)아두이노 센서 제어 기반 제품 개발 </li>
           <li>2020.09 ~ 2020.12 : (개발 스터디)WinAPI "포레이저" 개발 참여 </li>
           <li>2021.02 ~ 2021.04 : (개발 스터디)Unity RPG "던전 탐사대" 개발 참여</li>
-          <!--
-          <li>2021.06 ~ 2021.07 : (개발 스터디)Unity 디펜스 게임 제작</li>
-          -->
           <li>2024.04 ~ 2025.09 : 게임 클라이언트 개발 과정 수료</li>
         </ul>
       </div>
     </div>
-       <a href="about.html" class="btn btn-blue about-button">자세한 자기소개 보기</a>
+
+    <a href="about.html" class="btn btn-blue about-button">자세한 자기소개 보기</a>
   </section>
 
- <!-- 프로젝트 -->
-<section id="projects" class="section">
-  <h2>프로젝트</h2>
+  <!-- 프로젝트 -->
+  <section id="projects" class="section">
+    <h2>프로젝트</h2>
 
-  <!-- 상단 2개 -->
-  <div class="row row-2">
-    <article class="project-card">
-      <img class="project-thumb" src="Images/tymesia.jpg" alt="THYMESIA 썸네일" />
-      <h3>THYMESIA (DirectX11 3D) - 팀 프로젝트</h3>
-      <p>맵툴, Shader 연출, Item System</p>
-      <div class="project-buttons">
-        <a class="btn-sm btn-blue-sm" href="tymesia_stack.pdf" target="_blank">자세히 보기</a>
-        <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/Thymesia" target="_blank">
-          <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-        </a>
-        <a class="btn-sm btn-violet-sm" href="https://youtu.be/T3UJbHMiLYw" target="_blank">
-          <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-        </a>
-      </div>
-    </article>
+    <div class="row row-2">
+      <article class="project-card">
+        <img class="project-thumb" src="Images/tymesia.jpg" alt="THYMESIA 썸네일" />
+        <h3>THYMESIA (DirectX11 3D) - 팀 프로젝트</h3>
+        <p>맵툴, Shader 연출, Item System</p>
+        <div class="project-buttons">
+          <a class="btn-sm btn-blue-sm" href="tymesia_stack.pdf" target="_blank">자세히 보기</a>
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/Thymesia" target="_blank">
+            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
+          </a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/T3UJbHMiLYw" target="_blank">
+            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
+          </a>
+        </div>
+      </article>
 
-    <article class="project-card">
-      <img class="project-thumb" src="Images/multishooting.jpg" alt="MULTI SHOOTING 썸네일" />
-      <h3>MULTI SHOOTING (Unity PUN2) - 개인 프로젝트</h3>
-      <p>PUN2 기반 서버 구축, 횡스크롤 슈팅</p>
-      <div class="project-buttons">
-        <a class="btn-sm btn-blue-sm" href="javascript:void(0);" onclick="loadPage('multishooting_stack.html')">자세히 보기</a>
-        <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">
-          <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-        </a>
-        <a class="btn-sm btn-violet-sm" href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">
-          <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-        </a>
-      </div>
-    </article>
-  </div>
+      <article class="project-card">
+        <img class="project-thumb" src="Images/multishooting.jpg" alt="MULTI SHOOTING 썸네일" />
+        <h3>MULTI SHOOTING (Unity PUN2) - 개인 프로젝트</h3>
+        <p>PUN2 기반 서버 구축, 횡스크롤 슈팅</p>
+        <div class="project-buttons">
+          <a class="btn-sm btn-blue-sm" href="javascript:void(0);" onclick="loadPage('multishooting_stack.html')">자세히 보기</a>
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">
+            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
+          </a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">
+            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
+          </a>
+        </div>
+      </article>
+    </div>
 
-  <!-- 하단 3개 -->
-  <div class="row row-3">
-    <article class="project-card">
-      <img class="project-thumb" src="Images/roboquest.jpg" alt="ROBOQUEST 썸네일" />
-      <h3>ROBOQUEST (DirectX11 3D) - 개인 프로젝트</h3>
-      <p>게임 내 유닛 AI, 맵, FPS 전투 패턴</p>
-      <div class="project-buttons">
-        <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/RoboQuest" target="_blank">
-          <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-        </a>
-        <a class="btn-sm btn-violet-sm" href="https://youtu.be/q8If1wbsMpg" target="_blank">
-          <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-        </a>
-      </div>
-    </article>
+    <div class="row row-3">
+      <article class="project-card">
+        <img class="project-thumb" src="Images/roboquest.jpg" alt="ROBOQUEST 썸네일" />
+        <h3>ROBOQUEST (DirectX11 3D) - 개인 프로젝트</h3>
+        <p>게임 내 유닛 AI, 맵, FPS 전투 패턴</p>
+        <div class="project-buttons">
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/RoboQuest" target="_blank">
+            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
+          </a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/q8If1wbsMpg" target="_blank">
+            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
+          </a>
+        </div>
+      </article>
 
-    <article class="project-card">
-      <img class="project-thumb" src="Images/corekeeper.jpg" alt="COREKEEPER 썸네일" />
-      <h3>COREKEEPER (DirectX9 3D) - 팀 프로젝트</h3>
-      <p>맵툴, 맵 제작</p>
-      <div class="project-buttons">
-        <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/CoreKeeper" target="_blank">
-          <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-        </a>
-        <a class="btn-sm btn-violet-sm" href="https://youtu.be/p2AZdOhzHo4" target="_blank">
-          <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-        </a>
-      </div>
-    </article>
+      <article class="project-card">
+        <img class="project-thumb" src="Images/corekeeper.jpg" alt="COREKEEPER 썸네일" />
+        <h3>COREKEEPER (DirectX9 3D) - 팀 프로젝트</h3>
+        <p>맵툴, 맵 제작</p>
+        <div class="project-buttons">
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/CoreKeeper" target="_blank">
+            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
+          </a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/p2AZdOhzHo4" target="_blank">
+            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
+          </a>
+        </div>
+      </article>
 
-    <article class="project-card">
-      <img class="project-thumb" src="Images/snowbrothers.jpg" alt="SNOW BROTHERS 썸네일" />
-      <h3>SNOW BROTHERS (WinAPI 2D) - 개인 프로젝트</h3>
-      <p>유닛 AI, 충돌 처리</p>
-      <div class="project-buttons">
-        <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">
-          <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-        </a>
-        <a class="btn-sm btn-violet-sm" href="https://youtu.be/7BwQi_yRieA" target="_blank">
-          <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
+      <article class="project-card">
+        <img class="project-thumb" src="Images/snowbrothers.jpg" alt="SNOW BROTHERS 썸네일" />
+        <h3>SNOW BROTHERS (WinAPI 2D) - 개인 프로젝트</h3>
+        <p>유닛 AI, 충돌 처리</p>
+        <div class="project-buttons">
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">
+            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
+          </a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/7BwQi_yRieA" target="_blank">
+            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
 
   <section id="skills" class="section">
     <h2>기술 스택</h2>
@@ -313,40 +340,32 @@
   </section>
   </main>
 
-  <!-- JS: 페이지 전환 (디자인 유지 버전) -->
   <script>
   function loadPage(page) {
     document.body.style.opacity = 0;
-
-  fetch(page)
-    .then(res => res.text())
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-
-      // ✅ <body> 내용 통째로 가져오기
-      const newBody = doc.querySelector('body');
-      if (newBody) {
-        document.querySelector('main#content').innerHTML = newBody.innerHTML;
-      }
-
-      window.scrollTo(0, 0);
-      setTimeout(() => { document.body.style.opacity = 1; }, 100);
-
-      // ✅ highlight.js 다시 실행
-      const script = document.createElement('script');
-      script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
-      script.onload = () => {
-        const langScript = document.createElement('script');
-        langScript.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js";
-        langScript.onload = () => hljs.highlightAll();
-        document.body.appendChild(langScript);
-      };
-      document.body.appendChild(script);
-    })
-    .catch(err => console.error("페이지 로드 실패:", err));
+    fetch(page)
+      .then(res => res.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const newBody = doc.querySelector('body');
+        if (newBody) {
+          document.querySelector('main#content').innerHTML = newBody.innerHTML;
+        }
+        window.scrollTo(0, 0);
+        setTimeout(() => { document.body.style.opacity = 1; }, 100);
+        const script = document.createElement('script');
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
+        script.onload = () => {
+          const langScript = document.createElement('script');
+          langScript.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js";
+          langScript.onload = () => hljs.highlightAll();
+          document.body.appendChild(langScript);
+        };
+        document.body.appendChild(script);
+      })
+      .catch(err => console.error("페이지 로드 실패:", err));
   }
   </script>
 </body>
 </html>
-
