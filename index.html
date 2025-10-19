@@ -391,6 +391,20 @@ nav a:hover {
       })
       .catch(err => console.error("페이지 로드 실패:", err));
   }
+     // ✅ 여기에 추가!
+  document.addEventListener("click", function(e) {
+    const link = e.target.closest("nav a");
+    if (!link) return;
+    e.preventDefault();
+    const href = link.getAttribute("href");
+
+    if (href.startsWith("#")) {
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = href;
+    }
+  });
   </script>
 </body>
 </html>
