@@ -62,9 +62,14 @@
     .btn-green{ background:var(--green) }
 
     .hero-photo{
-      width:188px; height:188px; border-radius:22px; border:4px solid #fff;
-      object-fit:cover; box-shadow:0 6px 16px rgba(0,0,0,.25);
-      background:#ddd;
+   width: 220px;                 /* 🔹 가로 조금 늘림 */
+  height: auto;                 /* 🔹 세로 비율 자동 */
+  aspect-ratio: auto;           /* 🔹 브라우저가 원본 비율 유지 */
+  border-radius: 22px;
+  border: 4px solid #fff;
+  object-fit: contain;          /* 🔹 사진 짤림 방지 (공백 허용) */
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
+  background: #ddd;
     }
 
     /* ---------- SECTIONS ---------- */
