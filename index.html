@@ -24,22 +24,28 @@
       transition: opacity 0.25s ease-in-out;
     }
 
-    /* ---------- NAV + HEADER ---------- */
-    header{
-      background: linear-gradient(135deg, #6a4c93 0%, #5b3e86 100%);
-      color:#fff;
-      padding:48px 20px;
-      position:relative;
-    }
-    nav{
-       position: fixed;          /* ✅ 스크롤해도 항상 화면 상단에 고정 */
-       top: 18px;                /* 상단에서 살짝 떨어지게 */
-       right: 250px;             /* ✅ 프로필 사진 위로 이동 (왼쪽으로 당김 효과) */
-       z-index: 9999;            /* 다른 요소 위에 표시 */
-       background: rgba(106, 76, 147, 0.9); /* 반투명 보라 배경 */
-       padding: 10px 16px;
-       border-radius: 12px;
-       backdrop-filter: blur(6px); /* 유리 효과 */
+   /* ---------- NAV + HEADER ---------- */
+header {
+  background: linear-gradient(135deg, #6a4c93 0%, #5b3e86 100%);
+  color: #fff;
+  padding: 120px 20px 48px;  /* 🔹 위쪽 여백 늘림 (nav 가림 방지) */
+  position: relative;
+}
+
+/* ✅ 전체 상단바(navbar) 고정 */
+nav {
+  position: fixed;            /* 스크롤해도 항상 상단 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;                /* 전체 가로 폭 */
+  height: 56px;
+  background: #6a4c93;        /* 기존 보라색 */
+  display: flex;
+  justify-content: flex-end;  /* 오른쪽 정렬 */
+  align-items: center;
+  padding: 0 80px;            /* 양쪽 여백 */
+  z-index: 10000;             /* 항상 위 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);  /* 살짝 그림자 */
 }
 
 nav a {
