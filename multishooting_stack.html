@@ -394,7 +394,19 @@ public class ChatManager : MonoBehaviourPunCallbacks
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", () => hljs.highlightAll());</script>
+
+    <!-- ✅ 여기에 바로 아래 코드 추가 -->
+  <script>
+  document.querySelectorAll('.global-nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault(); // 기본 anchor 동작 막기
+      const target = link.getAttribute('href');
+      window.location.href = target; // index.html로 강제 이동
+    });
+  });
+  </script>
 </main>
+
 
 
 
