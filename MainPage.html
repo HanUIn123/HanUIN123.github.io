@@ -18,64 +18,58 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family:Arial,Helvetica,sans-serif;
+      font-family: Arial, "Malgun Gothic", sans-serif; /* 폰트 개선 */
       background:var(--paper);
       color:var(--ink);
       transition: opacity 0.25s ease-in-out;
     }
 
-   /* ---------- NAV + HEADER ---------- */
-header {
-  background: linear-gradient(135deg, #6a4c93 0%, #5b3e86 100%);
-  color: #fff;
-  padding: 120px 20px 48px;  
-  position: relative;
-}
-
-/* 상단바 고정 */
-nav {
-  position: fixed;            
-  top: 0;
-  left: 0;
-  width: 100%;               
-  height: 56px;
-  background: #6a4c93;       
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-  padding: 0 350px 0 0;             
-  z-index: 10000;           
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
-}
-
-nav a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  margin-left: 18px;
-  transition: color 0.2s;
-}
-
-nav a:hover {
-  color: #dcd3f7;
+    /* ---------- NAV + HEADER ---------- */
+    header {
+      background: linear-gradient(135deg, #6a4c93 0%, #5b3e86 100%);
+      color: #fff;
+      padding: 120px 20px 48px;  
+      position: relative;
     }
-    nav a{
-      color:#fff; text-decoration:none; font-weight:bold; margin-left:18px;
+
+    nav {
+      position: fixed;              
+      top: 0;
+      left: 0;
+      width: 100%;                
+      height: 56px;
+      background: #6a4c93;        
+      display: flex;
+      justify-content: flex-end; 
+      align-items: center;
+      padding: 0 50px;             
+      z-index: 10000;            
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
     }
-    nav a:hover{ text-decoration:underline; }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 18px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: #dcd3f7; text-decoration: underline; }
 
     .header-inner{
       max-width:1000px;
       margin:0 auto;
       display:flex; 
       align-items:center; 
-      justify-content:center;
-      gap:300px;
+      justify-content:space-between; /* 간격 조정 */
+      gap:40px;
     }
     .hero-text h1{ margin:4px 0 8px; font-size:34px }
     .hero-text .role{ opacity:.95; margin:0 0 4px }
     .hero-text .tagline{ opacity:.85; margin:0 0 16px }
     .hero-actions{ display:flex; gap:10px; flex-wrap:wrap }
+    
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 18px; border-radius:8px; color:#fff; text-decoration:none;
@@ -91,7 +85,7 @@ nav a:hover {
       height:220px;
       border-radius:22px;
       border:4px solid #fff;
-      object-fit:contain;
+      object-fit:cover; /* contain에서 cover로 변경하여 꽉 차게 */
       box-shadow:0 6px 16px rgba(0,0,0,.25);
       background:#fff;
     }
@@ -100,7 +94,7 @@ nav a:hover {
     .section{
       max-width:1100px;
       margin:42px auto;
-      padding:28px;
+      padding:40px 28px;
       background:var(--card);
       border-radius:14px;
       box-shadow:var(--shadow);
@@ -111,103 +105,96 @@ nav a:hover {
       display:inline-block;
       border-bottom:2px solid var(--purple);
       color:var(--purple);
-      margin:0 auto 18px;
+      margin:0 auto 30px;
       padding-bottom:6px;
       width:auto;
     }
 
-    /* 소개 좌/우 */
+    /* 소개 좌/우 레이아웃 */
     .about-wrap{ 
       display:flex;
-      gap:60px;
+      gap:40px;
       align-items:flex-start;
       justify-content:space-between;
       text-align:left;
     }
-    .about-left{ flex:1.6 }
-    .about-right{ flex:1; font-size:14px }
-    .about-left h3{ margin:2px 0 10px }
-    .about-left p{ line-height:1.6; margin:6px 0 14px; }
+    .about-left{ flex:1.2; }
+    .about-right{ flex:1; background: #f8f9fa; padding: 20px; border-radius: 12px; }
+    
+    .about-left h3{ margin:0 0 15px; color: var(--ink); }
+    .about-left p{ line-height:1.7; margin:0 0 20px; color: #444; }
 
-    .about-button {
-      display:block;
-      margin:40px auto 0;
-      text-align:center;
-      width:fit-content;
+    /* 신규 추가: 주요 기술 태그 스타일 [cite: 54] */
+    .tech-stack-title { display: block; margin-bottom: 12px; font-weight: bold; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tech-tag {
+      background-color: #eef2f7;
+      color: #334e68;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #dbe3eb;
+      transition: all 0.2s;
     }
+    .tech-tag:hover { background: var(--blue); color: #fff; border-color: var(--blue); transform: translateY(-2px); }
+
+    /* 학력 및 활동 리스트 스타일 [cite: 37, 39, 44] */
+    .about-right b { display: block; margin-top: 15px; color: var(--purple); font-size: 15px; }
+    .about-right b:first-child { margin-top: 0; }
+    .about-right ul { list-style: none; padding: 0; margin: 8px 0; }
+    .about-right li { 
+      position: relative;
+      padding-left: 15px;
+      margin-bottom: 6px;
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: #555;
+    }
+    .about-right li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--purple);
+    }
+
+    .about-button { display:block; margin:40px auto 0; width:fit-content; }
 
     /* ---------- PROJECTS ---------- */
-    .row{
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      flex-wrap:wrap;
-      margin-bottom:20px;
-    }
-    .row-2 .project-card{ flex:0 1 320px; }
-    .row-3 .project-card{ flex:0 1 320px; }
-
+    .row{ display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
     .project-card{
-      background:#fdfdfd;
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 2px 6px rgba(0,0,0,.15);
-      display:flex;
-      flex-direction:column;
-      width:100%;
-      max-width:320px;
+      background:#fdfdfd; border-radius:12px; padding:18px;
+      box-shadow:0 2px 6px rgba(0,0,0,.15); display:flex; flex-direction:column;
+      width:100%; max-width:320px; transition: transform 0.2s;
     }
-    .project-thumb{
-      width:100%;
-      height:170px;
-      object-fit:cover;
-      border-radius:8px;
-      margin-bottom:10px;
-      background:#ddd;
-    }
-    .project-card h3{ margin:6px 0 6px; font-size:18px }
-    .project-card p{ margin:0 0 10px; color:#555 }
-
+    .project-card:hover { transform: translateY(-5px); }
+    .project-thumb{ width:100%; height:170px; object-fit:cover; border-radius:8px; margin-bottom:10px; background:#ddd; }
+    .project-card h3{ margin:6px 0 6px; font-size:18px; color: var(--purple); }
+    .project-card p{ margin:0 0 15px; color:#666; font-size: 14px; }
     .project-buttons{ display:flex; gap:8px; margin-top:auto; flex-wrap:wrap; }
+
+    .btn-sm{
+      flex:1; display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 10px; border-radius:6px; color:#fff; text-decoration:none;
+      font-weight:bold; font-size:12px; box-shadow:0 2px 4px rgba(0,0,0,.1);
+      transition:all .12s ease;
+    }
     .btn-blue-sm{ background:var(--blue) }
     .btn-green-sm{ background:var(--green) }
     .btn-violet-sm{ background:var(--violet) }
+    .btn-sm:hover{ filter:brightness(1.1); transform: scale(1.02); }
+    .btn-icon{ width:14px; height:14px; margin-right:4px; }
 
-    .btn-sm{
-      flex:1;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:8px 12px;
-      border-radius:8px;
-      color:#fff;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:14px;
-      box-shadow:0 2px 6px rgba(0,0,0,.14);
-      transition:transform .12s ease, filter .12s ease;
-      white-space:nowrap;
-      min-width:95px;
-    }
-    .btn-sm:hover{ transform:translateY(-1px); filter:brightness(.95) }
-
-    .btn-icon{
-      width:18px;
-      height:18px;
-      margin-right:6px;
-      vertical-align:middle;
-    }
-
-    /* ---------- SKILLS & CONTACT ---------- */
+    /* ---------- CONTACT ---------- */
+    .contact p { margin: 10px 0; }
     .contact a{ color:var(--purple); font-weight:bold; text-decoration:none }
     .contact a:hover{ text-decoration:underline }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width:720px){
-      .header-inner{ flex-direction:column; text-align:center; gap:20px }
-      .hero-actions{ justify-content:center }
-      .about-wrap{ flex-direction:column; text-align:center }
-      .row{ flex-direction:column; align-items:center }
+    @media (max-width:850px){
+      .header-inner{ flex-direction:column; text-align:center; }
+      .about-wrap{ flex-direction:column; }
+      .about-right { width: 100%; }
+      nav { justify-content: center; padding: 0; }
     }
   </style>
 </head>
@@ -215,13 +202,12 @@ nav a:hover {
 <body>
   <main id="content">
 
-  <!-- HEADER -->
   <header>
     <nav>
       <a href="#about">소개</a>
       <a href="#projects">프로젝트</a>
       <a href="#skills">기술스택</a>
-       <a href="https://www.notion.so/GAME-PROGRAMMING-Notion-226fe0424e1780f1a7d9f252a5c4dafa" target="_blank">기술 블로그</a>
+      <a href="https://www.notion.so/GAME-PROGRAMMING-Notion-226fe0424e1780f1a7d9f252a5c4dafa" target="_blank">기술 블로그</a>
       <a href="#contact">연락처</a>
     </nav>
 
@@ -239,197 +225,80 @@ nav a:hover {
     </div>
   </header>
 
-  <!-- 소개 -->
   <section id="about" class="section">
     <h2>소개</h2>
     <div class="about-wrap">
       <div class="about-left">
         <h3>게임 클라이언트 개발에 대한 열정</h3>
         <p>
-          C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다.
-          Unity 엔진으로 서버 기반이 적용된 프로젝트를 제작하며 상용 엔진 경험을 쌓았고,
-          Unreal 엔진으로도 개발 경험을 넓혀가고 있습니다.
+          C++과 DirectX로 다양한 프로젝트를 제작하며 게임 시스템을 구현한 경험이 있습니다. [cite: 33, 54]
+          Unity 엔진으로 서버 기반이 적용된 프로젝트를 제작하며 상용 엔진 경험을 쌓았고, [cite: 44, 48]
+          Unreal 엔진으로도 개발 경험을 넓혀가고 있습니다. [cite: 44, 52]
         </p>
-        <p><b>주요 기술</b>
+        
+        <b class="tech-stack-title">주요 기술</b>
         <div class="tech-tags">
-          <span class="tech-tag">C</span>
-          <span class="tech-tag">C++</span>
+          <span class="tech-tag">C / C++</span>
           <span class="tech-tag">WinAPI</span>
-          <span class="tech-tag">DirectX 9~11</span>
+          <span class="tech-tag">DirectX 9 & 11</span>
           <span class="tech-tag">HLSL</span>
           <span class="tech-tag">Unity</span>
           <span class="tech-tag">Unreal Engine</span>
-  </div>
+          <span class="tech-tag">C#</span>
+          <span class="tech-tag">Shader</span>
+        </div>
       </div>
 
       <div class="about-right">
-  <b>학력</b>
-  <ul>
-    <li>2013.03 ~ 2020.02 : 가천대학교 전자공학과 졸업</li>
-  </ul>
+        <b>학력</b>
+        <ul>
+          <li>2013.03 ~ 2020.02 : 가천대학교 전자공학과 졸업 [cite: 37]</li>
+        </ul>
 
-  <b>전문 교육 및 기술 연마</b>
-  <ul>
-    <li>2024.04 ~ 2025.09 : 쥬신 게임아카데미 게임 클라이언트 과정 수료</li>
-    <li>2024.07 ~ 2025.01 : DirectX11 기반 3D 게임 프로그래밍 심화 학습</li>
-    <li>2022.02 ~ 2022.05 : Effective C++ 객체지향 설계 및 최적화 연구</li>
-    <li>2021.01 ~ 2021.03 : Unity Engine 활용 및 C# 스크립팅 숙달</li>
-    <li>2020.08 ~ 2020.11 : WinAPI 프레임워크 설계 및 C/C++ 메모리 구조 이해</li>
-  </ul>
+        <b>전문 교육 및 기술 연마</b>
+        <ul>
+          <li>2024.04 ~ 2025.09 : 쥬신 게임아카데미 수료 [cite: 43]</li>
+          <li>2024.07 ~ 2025.01 : DirectX11 3D 프로그래밍 입문 [cite: 45]</li>
+          <li>2022.02 ~ 2022.05 : Effective C++ 객체지향 학습 [cite: 45]</li>
+          <li>2021.01 ~ 2021.03 : Unity Engine 및 C# 숙달 [cite: 44]</li>
+          <li>2020.08 ~ 2020.11 : WinAPI 2D 프레임워크 설계 [cite: 44]</li>
+        </ul>
 
-  <b>주요 활동</b>
-  <ul>
-    <li>2020.02 ~ 2020.09 : 모바일 게임 유튜브 채널 운영 및 콘텐츠 제작</li>
-    <li>2019.09 ~ 2019.12 : (공모전) IoT 전자제품 제작 및 센서 제어 개발</li>
-    <li>2023.09 : 성남시 GXG 2023 게임 컨퍼런스 프로그램 참여</li>
-  </ul>
-</div>
+        <b>주요 활동</b>
+        <ul>
+          <li>2020.02 ~ 2020.09 : 게임 유튜브 채널 운영 [cite: 41]</li>
+          <li>2019.09 ~ 2019.12 : IoT 전자제품 제작 공모전 [cite: 41]</li>
+          <li>2023.09 : GXG 2023 게임 컨퍼런스 참여 [cite: 41]</li>
+        </ul>
+      </div>
     </div>
 
     <a href="about.html" class="btn btn-blue about-button">자세한 자기소개 보기</a>
   </section>
 
-  <!-- 프로젝트 -->
   <section id="projects" class="section">
     <h2>프로젝트</h2>
-
     <div class="row row-2">
       <article class="project-card">
         <img class="project-thumb" src="Images/tymesia.jpg" alt="THYMESIA 썸네일" />
-        <h3>THYMESIA (DirectX11 3D) - 팀 프로젝트</h3>
-        <p>맵툴, Shader 연출, Item System</p>
+        <h3>THYMESIA (DirectX11) [cite: 48]</h3>
+        <p>팀 프로젝트 | 맵툴, Shader 연출 [cite: 54]</p>
         <div class="project-buttons">
-           <!-- 
-          <a class="btn-sm btn-blue-sm" href="javascript:void(0);" onclick="loadPage('Thymesia_About.pdf')">자세히 보기</a>
-          
-          이전꺼  -->
-          <a class="btn-sm btn-blue-sm" href="Thymesia_About.pdf" target="_blank">자세히 보기</a>
-
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/Thymesia" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/T3UJbHMiLYw" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
+          <a class="btn-sm btn-blue-sm" href="Thymesia_About.pdf" target="_blank">자세히</a>
+          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/Thymesia" target="_blank">GitHub</a>
+          <a class="btn-sm btn-violet-sm" href="https://youtu.be/T3UJbHMiLYw" target="_blank">영상</a>
         </div>
       </article>
-
-      <article class="project-card">
-        <img class="project-thumb" src="Images/multishooting.jpg" alt="MULTI SHOOTING 썸네일" />
-        <h3>MULTI SHOOTING (Unity PUN2) - 개인 프로젝트</h3>
-        <p>PUN2 기반 서버 구축, 횡스크롤 슈팅</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-blue-sm" href="javascript:void(0);" onclick="loadPage('multishooting_stack.html')">자세히 보기</a>
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/MultiShootingGame" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/Ch-EU6h1Ru4" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-    </div>
-
-    <div class="row row-3">
-      <article class="project-card">
-        <img class="project-thumb" src="Images/roboquest.jpg" alt="ROBOQUEST 썸네일" />
-        <h3>ROBOQUEST (DirectX11 3D) - 개인 프로젝트</h3>
-        <p>게임 내 유닛 AI, 맵, FPS 전투 패턴</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-blue-sm" href="RoboQuest_About.pdf" target="_blank">자세히 보기</a>
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/RoboQuest" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/q8If1wbsMpg" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-thumb" src="Images/corekeeper.jpg" alt="COREKEEPER 썸네일" />
-        <h3>COREKEEPER (DirectX9 3D) - 팀 프로젝트</h3>
-        <p>맵툴, 맵 제작</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/CoreKeeper" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/p2AZdOhzHo4" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card">
-        <img class="project-thumb" src="Images/snowbrothers.jpg" alt="SNOW BROTHERS 썸네일" />
-        <h3>SNOW BROTHERS (WinAPI 2D) - 개인 프로젝트</h3>
-        <p>유닛 AI, 충돌 처리</p>
-        <div class="project-buttons">
-          <a class="btn-sm btn-green-sm" href="https://github.com/HanUIn123/SnowBrothers2" target="_blank">
-            <img class="btn-icon" src="Images/Git.png" alt="GitHub" />GitHub
-          </a>
-          <a class="btn-sm btn-violet-sm" href="https://youtu.be/7BwQi_yRieA" target="_blank">
-            <img class="btn-icon" src="Images/YouTube.png" alt="YouTube" />시연영상
-          </a>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <h2>기술 스택</h2>
-    <p>C, C++, DirectX9, DirectX11, HLSL, Unity, Unreal, Git, Photoshop</p>
+      </div>
   </section>
 
   <section id="contact" class="section contact">
     <h2>연락처</h2>
-    <p>📱 Phone : 010-8721-1493</p>
-    <p>✉️ Email : <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com</a></p>
+    <p>📱 Phone : 010-8721-1493 [cite: 35]</p>
+    <p>✉️ Email : <a href="mailto:gksyy3232@gmail.com">gksyy3232@gmail.com [cite: 35]</a></p>
     <p>💻 GitHub : <a href="https://github.com/HanUIn123" target="_blank">github.com/HanUIn123</a></p>
-    <p>📒 Notion : <a href="https://www.notion.so/Project-Playing-Videos-263fe0424e178053a8d5f35c30e240b7" target="_blank">Notion 포트폴리오</a></p>
   </section>
+
   </main>
-
-  <script>
-  function loadPage(page) {
-    document.body.style.opacity = 0;
-    fetch(page)
-      .then(res => res.text())
-      .then(html => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const newBody = doc.querySelector('body');
-        if (newBody) {
-          document.querySelector('main#content').innerHTML = newBody.innerHTML;
-        }
-        window.scrollTo(0, 0);
-        setTimeout(() => { document.body.style.opacity = 1; }, 100);
-        const script = document.createElement('script');
-        script.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js";
-        script.onload = () => {
-          const langScript = document.createElement('script');
-          langScript.src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js";
-          langScript.onload = () => hljs.highlightAll();
-          document.body.appendChild(langScript);
-        };
-        document.body.appendChild(script);
-      })
-      .catch(err => console.error("페이지 로드 실패:", err));
-  }
-     
-  document.addEventListener("click", function(e) {
-    const link = e.target.closest("nav a");
-    if (!link) return;
-    e.preventDefault();
-    const href = link.getAttribute("href");
-
-    if (href.startsWith("#")) {
-      const target = document.querySelector(href);
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = href;
-    }
-  });
-  </script>
 </body>
 </html>
